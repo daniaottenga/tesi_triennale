@@ -1,0 +1,40 @@
+\babel@toc {italian}{}\relax 
+\babel@toc {italian}{}\relax 
+\babel@toc {italian}{}\relax 
+\babel@toc {english}{}\relax 
+\contentsline {chapter}{List of Tables}{vi}{section*.1}%
+\contentsline {chapter}{List of Figures}{vii}{section*.2}%
+\contentsline {chapter}{\numberline {1}Introduction to combinatorial optimization}{1}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Historical roots}{1}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Families of problems}{2}{section.1.2}%
+\contentsline {section}{\numberline {1.3}Complexity and Solving Strategies}{2}{section.1.3}%
+\contentsline {subsection}{\numberline {1.3.1}NP-hard Problems}{2}{subsection.1.3.1}%
+\contentsline {subsection}{\numberline {1.3.2}Heuristics and Metaheuristics}{2}{subsection.1.3.2}%
+\contentsline {chapter}{\numberline {2}Introduction to Machine Scheduling}{5}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Problem classification}{5}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Flow shop scheduling}{6}{section.2.2}%
+\contentsline {section}{\numberline {2.3}Permutation Flow Shop (PFSSP)}{6}{section.2.3}%
+\contentsline {chapter}{\numberline {3}Problem identification}{7}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Mathematical Notation: Parameters, Indexes and Variables}{7}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Constraints and objective function}{7}{section.3.2}%
+\contentsline {paragraph}{Objective function}{7}{section*.3}%
+\contentsline {paragraph}{Costraints}{8}{section*.4}%
+\contentsline {section}{\numberline {3.3}Modeling Maintenance in Idle Times}{9}{section.3.3}%
+\contentsline {section}{\numberline {3.4}The Proposed Metaheuristic}{9}{section.3.4}%
+\contentsline {chapter}{\numberline {4}Procedures}{11}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Data Management and Input}{11}{section.4.1}%
+\contentsline {section}{\numberline {4.2}MIP implementation}{11}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Metaheuristic Implementation}{14}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}Schedule operation}{14}{subsection.4.3.1}%
+\contentsline {subsection}{\numberline {4.3.2}Compute Schedule}{14}{subsection.4.3.2}%
+\contentsline {subsection}{\numberline {4.3.3}Compute Schedule}{15}{subsection.4.3.3}%
+\contentsline {subsection}{\numberline {4.3.4}Swap Move}{16}{subsection.4.3.4}%
+\contentsline {subsection}{\numberline {4.3.5}Simulated Annealing}{16}{subsection.4.3.5}%
+\contentsline {section}{\numberline {4.4}Results Visualization: The Gantt Chart Generator}{16}{section.4.4}%
+\contentsline {chapter}{\numberline {5}Results}{19}{chapter.5}%
+\contentsline {chapter}{\numberline {6}Conclusions}{23}{chapter.6}%
+\contentsline {chapter}{\numberline {A}Scripts}{25}{appendix.A}%
+\contentsline {section}{\numberline {A.1}Data Generation Script}{25}{section.A.1}%
+\contentsline {section}{\numberline {A.2}MIP implementation Script}{26}{section.A.2}%
+\contentsline {section}{\numberline {A.3}Simulated Annealing Script}{32}{section.A.3}%
+\contentsline {chapter}{Bibliography}{41}{lstnumber.-3.289}%

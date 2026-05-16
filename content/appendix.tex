@@ -1,0 +1,49 @@
+% appendix
+\chapter{Scripts}
+\label{sec:appendix_galileo}
+
+\lstdefinelanguage{JavaScript}{
+  keywords={break, case, catch, continue, debugger, default, delete, do, else, finally, for, function, if, in, const, instanceof, new, return, switch, this, throw, try, typeof, var, void, while, with},
+  morecomment=[l]{//},
+  morecomment=[s]{/*}{*/},
+  morestring=[b]',
+  morestring=[b]",
+  sensitive=true
+}
+
+\lstset{
+  language=Python,
+    basicstyle=\ttfamily\small,
+    keywordstyle=\color{blue}\bfseries,
+    stringstyle=\color{red},
+    commentstyle=\color{green!60!black}\itshape,
+    numbers=left,
+    numberstyle=\tiny\color{gray},
+    stepnumber=1,
+    breaklines=true,
+    frame=single,
+}
+
+\section{Data Generation Script}
+\label{app:data_creation_script}
+\lstinputlisting{creation_files.py}
+
+\section{MIP implementation Script}
+\label{app:mip_implementation_script}
+\lstinputlisting{main.py}
+
+\section{Simulated Annealing Script}
+\label{app:simulated_annealing_script}
+\lstinputlisting{simulated_annealing.py}
+
+% lstlisting environment for direct inclusion
+% \begin{lstlisting}[language=Python]
+%     const test = test
+% \end{lstlisting}
+
+% for computational complexity
+%$\mathcal{O}\left(n\log{n}\right)$
+
+% verbatim
+%\verb+numpy+
+

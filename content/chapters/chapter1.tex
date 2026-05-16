@@ -1,0 +1,35 @@
+\chapter{Introduction to combinatorial optimization}
+
+\label{sec:intro_comb_opt}
+
+\textbf{Combinatorial Optimization} (CO) is the search for a ``best'' configuration of a set of discrete variables to achieve some goals in a typically finite domain. To optimize means to minimize or maximize the objective function, respecting the constraints. The solution will be a combination of variables, present in the set of all feasible assignments: the search (or solution) space. 
+
+A CO problem is defined by:
+\begin{itemize}
+    \item \textbf{Set of variables:} $V = \{x_1, x_2, \dots, x_n\}$.
+    \item \textbf{Variable domains:} $D = \{D_1, D_2, \dots, D_n\}$ where $x_i$ can take on values ($x_i \in D_i$).
+    \item \textbf{Constraints among variables:} $\Omega$ is the set of restrictions that limits all the possible combinations of values defining the solution space $S \subseteq D_1 \times \dots \times D_n$.
+    \item \textbf{Objective function:} $f: S \rightarrow \mathbb{R}$ assigns a numeric value to each admissible configuration.
+\end{itemize}
+
+\section[Historical roots]{Historical roots}
+
+The origins of CO lie in economic problems: the planning and management of operations and the efficient use of resources. It was initially conceived by Kantorovich and Koopmans and was motivated by applications in transportation and transshipment \cite{SCHRIJVER20051}. Soon more technical applications were developed and today we see discrete optimization problems everywhere: portfolio selection, capital budgeting, design of marketing campaigns, investment planning and facility location, political districting, gene sequencing, classification of plants and animals, the design of new molecules, the determination of ground states, layout of survivable and cost-efficient communication networks, positioning of satellites, sizing of truck fleets, layout of mass transportation systems and scheduling of buses and trains, assignment of workers to jobs such as drivers to buses and airline crew scheduling, design of unbreakable codes, etc. The list of applications is endless; even in areas like sports archaeology or psychology \cite{grotschel1995combinatorial}.
+
+\section[Families of problems]{Families of problems}
+
+We can divide the CO in five macro-groups: \textbf{the assignment problem} that aims to find the permutation where the sum of the costs of all the variables is the smallest possible by assigning a task to each agent; \textbf{the transportation problem} that aims to minimize the cost of transporting a product between several sources and destinations, \textbf{the packing/covering problem} that aims to minimize the number of containers used or the value of the object inserted in them; \textbf{the traveling salesman problem} that aims to find the order of the given places that the salesman must visit each location exactly once, traversing the shortest route and \textbf{the scheduling problem} that aims to allocate resources to perform a set of tasks over a specific period minimizing the completion time.
+
+\section{Complexity and Solving Strategies}
+
+The main challenge in CO is the size of the search space $S$. For many problems, $S$ grows factorially or exponentially with the number of variables $n$.
+
+\subsection{NP-hard Problems}
+
+Visiting all the possibilities in our search space to find the best one is not always computationally possible; these are known as \textbf{NP-hard problems} for which no polynomial time algorithm is currently known. This means that as the problem size increases, the time required to find the "best" configuration using exact methods becomes practically impossible, even for modern computers \cite{blum2003metaheuristics}. 
+
+\subsection{Heuristics and Metaheuristics}
+
+In these cases, we can rely on algorithms that produce an approximately optimal solution by making a trade-off between computational time and solution quality. So, the aim is to find the one solution that is close to the optimal in a reasonable time \cite{paschos2009overview}.
+
+Approximate algorithms are divided into two major categories of algorithms. \textbf{Heuristics} are problem-specific algorithms designed to find a good solution quickly. They often follow a greedy approach (e.g., in the traveling salesman problem, always moving to the nearest unvisited city). While fast, heuristics often get stuck in local optima --- solutions that are better than their neighbors but worse than the global best. On the other hand, \textbf{Metaheuristics} are higher-level frameworks that orchestrate one or more heuristics to explore the search space more efficiently. Unlike simple heuristics, metaheuristics include mechanisms to escape local optima (e.g., by allowing temporary "worse`` moves or maintaining a population of solutions). Common examples include Genetic Algorithms, Simulated Annealing, and Ant Colony Optimization.

@@ -1,0 +1,537 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.3 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{none/global//global/global/global}
+    \entry{SCHRIJVER20051}{incollection}{}{}
+      \name{author}{1}{}{%
+        {{hash=25d5b8c6eeb2588f4cd646cfe8d0827b}{%
+           family={Schrijver},
+           familyi={S\bibinitperiod},
+           given={Alexander},
+           giveni={A\bibinitperiod}}}%
+      }
+      \name{editor}{3}{}{%
+        {{hash=95c45a127e6f024be03955cd2e2023a9}{%
+           family={Aardal},
+           familyi={A\bibinitperiod},
+           given={K.},
+           giveni={K\bibinitperiod}}}%
+        {{hash=b9d73ddcb91b232ae6ddde26d72e2c7e}{%
+           family={Nemhauser},
+           familyi={N\bibinitperiod},
+           given={G.L.},
+           giveni={G\bibinitperiod}}}%
+        {{hash=d92e348504352810ff5793a38661b580}{%
+           family={Weismantel},
+           familyi={W\bibinitperiod},
+           given={R.},
+           giveni={R\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier}%
+      }
+      \strng{namehash}{25d5b8c6eeb2588f4cd646cfe8d0827b}
+      \strng{fullhash}{25d5b8c6eeb2588f4cd646cfe8d0827b}
+      \strng{fullhashraw}{25d5b8c6eeb2588f4cd646cfe8d0827b}
+      \strng{bibnamehash}{25d5b8c6eeb2588f4cd646cfe8d0827b}
+      \strng{authorbibnamehash}{25d5b8c6eeb2588f4cd646cfe8d0827b}
+      \strng{authornamehash}{25d5b8c6eeb2588f4cd646cfe8d0827b}
+      \strng{authorfullhash}{25d5b8c6eeb2588f4cd646cfe8d0827b}
+      \strng{authorfullhashraw}{25d5b8c6eeb2588f4cd646cfe8d0827b}
+      \strng{editorbibnamehash}{eb6789491853853cb114cc6656dffa2e}
+      \strng{editornamehash}{3a85d7242a224d803b1918df3af0c998}
+      \strng{editorfullhash}{eb6789491853853cb114cc6656dffa2e}
+      \strng{editorfullhashraw}{eb6789491853853cb114cc6656dffa2e}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Publisher Summary This chapter traces the history of combinatorial optimization. As a coherent mathematical discipline, combinatorial optimization is relatively young. Linear programming forms the hinge in the history of combinatorial optimization. Its initial conception by Kantorovich and Koopmans was motivated by combinatorial applications—in particular, in transportation and transshipment. The assignment problem is one of the first investigated combinatorial optimization problems. A breakthrough in solving the assignment problem came when Dantzig showed that the assignment problem can be formulated as a linear programming problem that automatically has an integer optimum solution. The reason is a theorem of Birkhoff [1946] stating that the convex hull of the permutation matrices is equal to the set of doubly stochastic matrices—nonnegative matrices in which each row and column sum is equal to 1. Therefore, minimizing a linear functional over the set of doubly stochastic matrices (which is a linear programming problem) gives a permutation matrix, being the optimum assignment.}
+      \field{booktitle}{Discrete Optimization}
+      \field{issn}{0927-0507}
+      \field{series}{Handbooks in Operations Research and Management Science}
+      \field{title}{On the History of Combinatorial Optimization (Till 1960)}
+      \field{volume}{12}
+      \field{year}{2005}
+      \field{pages}{1\bibrangedash 68}
+      \range{pages}{68}
+      \verb{doi}
+      \verb https://doi.org/10.1016/S0927-0507(05)12001-5
+      \endverb
+      \verb{urlraw}
+      \verb https://www.sciencedirect.com/science/article/pii/S0927050705120015
+      \endverb
+      \verb{url}
+      \verb https://www.sciencedirect.com/science/article/pii/S0927050705120015
+      \endverb
+    \endentry
+    \entry{grotschel1995combinatorial}{article}{}{}
+      \name{author}{2}{}{%
+        {{hash=2f9f4c8328a06c29b5de1d80cd2be403}{%
+           family={Grötschel},
+           familyi={G\bibinitperiod},
+           given={Martin},
+           giveni={M\bibinitperiod}}}%
+        {{hash=0d1784a2f9a807b1da8d15d5b1029c08}{%
+           family={Lovász},
+           familyi={L\bibinitperiod},
+           given={László},
+           giveni={L\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier Amsterdam}%
+      }
+      \strng{namehash}{ac51a63bce962335f80ef03d80af52b2}
+      \strng{fullhash}{ac51a63bce962335f80ef03d80af52b2}
+      \strng{fullhashraw}{ac51a63bce962335f80ef03d80af52b2}
+      \strng{bibnamehash}{ac51a63bce962335f80ef03d80af52b2}
+      \strng{authorbibnamehash}{ac51a63bce962335f80ef03d80af52b2}
+      \strng{authornamehash}{ac51a63bce962335f80ef03d80af52b2}
+      \strng{authorfullhash}{ac51a63bce962335f80ef03d80af52b2}
+      \strng{authorfullhashraw}{ac51a63bce962335f80ef03d80af52b2}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Handbook of combinatorics}
+      \field{number}{168}
+      \field{title}{Combinatorial optimization}
+      \field{volume}{2}
+      \field{year}{1995}
+      \field{pages}{1541\bibrangedash 1597}
+      \range{pages}{57}
+    \endentry
+    \entry{blum2003metaheuristics}{article}{}{}
+      \name{author}{2}{}{%
+        {{hash=f644701da1b5a364c4ee319b4455c494}{%
+           family={Blum},
+           familyi={B\bibinitperiod},
+           given={Christian},
+           giveni={C\bibinitperiod}}}%
+        {{hash=854bcf7d7d1f54a561b3d992bb4282dc}{%
+           family={Roli},
+           familyi={R\bibinitperiod},
+           given={Andrea},
+           giveni={A\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Acm New York, NY, USA}%
+      }
+      \strng{namehash}{3bf54f2be74f711cf21d323b264b1e4d}
+      \strng{fullhash}{3bf54f2be74f711cf21d323b264b1e4d}
+      \strng{fullhashraw}{3bf54f2be74f711cf21d323b264b1e4d}
+      \strng{bibnamehash}{3bf54f2be74f711cf21d323b264b1e4d}
+      \strng{authorbibnamehash}{3bf54f2be74f711cf21d323b264b1e4d}
+      \strng{authornamehash}{3bf54f2be74f711cf21d323b264b1e4d}
+      \strng{authorfullhash}{3bf54f2be74f711cf21d323b264b1e4d}
+      \strng{authorfullhashraw}{3bf54f2be74f711cf21d323b264b1e4d}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{ACM computing surveys (CSUR)}
+      \field{number}{3}
+      \field{title}{Metaheuristics in combinatorial optimization: Overview and conceptual comparison}
+      \field{volume}{35}
+      \field{year}{2003}
+      \field{pages}{268\bibrangedash 308}
+      \range{pages}{41}
+    \endentry
+    \entry{paschos2009overview}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=9bb80a16a148ceaa980752bcfbd02bba}{%
+           family={Paschos},
+           familyi={P\bibinitperiod},
+           given={Vangelis\bibnamedelima Th},
+           giveni={V\bibinitperiod\bibinitdelim T\bibinitperiod}}}%
+      }
+      \strng{namehash}{9bb80a16a148ceaa980752bcfbd02bba}
+      \strng{fullhash}{9bb80a16a148ceaa980752bcfbd02bba}
+      \strng{fullhashraw}{9bb80a16a148ceaa980752bcfbd02bba}
+      \strng{bibnamehash}{9bb80a16a148ceaa980752bcfbd02bba}
+      \strng{authorbibnamehash}{9bb80a16a148ceaa980752bcfbd02bba}
+      \strng{authornamehash}{9bb80a16a148ceaa980752bcfbd02bba}
+      \strng{authorfullhash}{9bb80a16a148ceaa980752bcfbd02bba}
+      \strng{authorfullhashraw}{9bb80a16a148ceaa980752bcfbd02bba}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Yugoslav Journal of Operations Research}
+      \field{number}{1}
+      \field{title}{An overview on polynomial approximation of NP-hard problems}
+      \field{volume}{19}
+      \field{year}{2009}
+      \field{pages}{3\bibrangedash 40}
+      \range{pages}{38}
+    \endentry
+    \entry{kan2012machine}{book}{}{}
+      \name{author}{1}{}{%
+        {{hash=c2e6ea43d15a5d77c4f61d103f5c84d6}{%
+           family={Kan},
+           familyi={K\bibinitperiod},
+           given={AHG\bibnamedelima Rinnooy},
+           giveni={A\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer Science \& Business Media}%
+      }
+      \strng{namehash}{c2e6ea43d15a5d77c4f61d103f5c84d6}
+      \strng{fullhash}{c2e6ea43d15a5d77c4f61d103f5c84d6}
+      \strng{fullhashraw}{c2e6ea43d15a5d77c4f61d103f5c84d6}
+      \strng{bibnamehash}{c2e6ea43d15a5d77c4f61d103f5c84d6}
+      \strng{authorbibnamehash}{c2e6ea43d15a5d77c4f61d103f5c84d6}
+      \strng{authornamehash}{c2e6ea43d15a5d77c4f61d103f5c84d6}
+      \strng{authorfullhash}{c2e6ea43d15a5d77c4f61d103f5c84d6}
+      \strng{authorfullhashraw}{c2e6ea43d15a5d77c4f61d103f5c84d6}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Machine scheduling problems: classification, complexity and computations}
+      \field{year}{2012}
+    \endentry
+    \entry{10.1145/3431232}{article}{}{}
+      \name{author}{2}{}{%
+        {{hash=3e5b82400c5e021e8c087bf12ef552eb}{%
+           family={Minaeva},
+           familyi={M\bibinitperiod},
+           given={Anna},
+           giveni={A\bibinitperiod}}}%
+        {{hash=f8573ec14571c716dc0d48d6f9e30783}{%
+           family={Hanzálek},
+           familyi={H\bibinitperiod},
+           given={Zdeněk},
+           giveni={Z\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {New York, NY, USA}%
+      }
+      \list{publisher}{1}{%
+        {Association for Computing Machinery}%
+      }
+      \strng{namehash}{e476d63b213c487778833209e5be7ea2}
+      \strng{fullhash}{e476d63b213c487778833209e5be7ea2}
+      \strng{fullhashraw}{e476d63b213c487778833209e5be7ea2}
+      \strng{bibnamehash}{e476d63b213c487778833209e5be7ea2}
+      \strng{authorbibnamehash}{e476d63b213c487778833209e5be7ea2}
+      \strng{authornamehash}{e476d63b213c487778833209e5be7ea2}
+      \strng{authorfullhash}{e476d63b213c487778833209e5be7ea2}
+      \strng{authorfullhashraw}{e476d63b213c487778833209e5be7ea2}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{This survey covers the basic principles and related works addressing the time-triggered scheduling of periodic tasks with deadlines. The wide range of applications and the increasing complexity of modern real-time systems result in the continually growing interest in this topic. However, the articles in this field appear without systematic notation. To address it, we extend the three-field Graham notation to cover periodic scheduling. Moreover, we formally define three example periodic scheduling problems (PSPs) and provide straightforward implementations of these examples in the Satisfiability Modulo Theories formalism with source codes. Then, we present a summary of the complexity results containing existing polynomially solvable PSPs. We also provide an overview of simple state-of-the-art methods and tricks to solve the PSPs efficiently in terms of time. Next, we survey the existing works on PSP according to the resource environment: scheduling on a single resource, on parallel identical resources, and on dedicated resources. In the survey, we indicate which works propose solution methods for more general PSPs. Finally, we present related problems that are not periodic by nature to provide inspiration for the PSP solution.}
+      \field{issn}{0360-0300}
+      \field{journaltitle}{ACM Comput. Surv.}
+      \field{month}{3}
+      \field{number}{1}
+      \field{title}{Survey on Periodic Scheduling for Time-triggered Hard Real-time Systems}
+      \field{volume}{54}
+      \field{year}{2021}
+      \verb{doi}
+      \verb 10.1145/3431232
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1145/3431232
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1145/3431232
+      \endverb
+      \keyw{satisfiability modulo theories,integer linear programming,constraint programming,complexity,combinatorial optimization,Hard real-time scheduling}
+    \endentry
+    \entry{weglarz2012project}{book}{}{}
+      \name{author}{1}{}{%
+        {{hash=9477d295ca61373e8949ce2c3b093528}{%
+           family={Weglarz},
+           familyi={W\bibinitperiod},
+           given={Jan},
+           giveni={J\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer Science \& Business Media}%
+      }
+      \strng{namehash}{9477d295ca61373e8949ce2c3b093528}
+      \strng{fullhash}{9477d295ca61373e8949ce2c3b093528}
+      \strng{fullhashraw}{9477d295ca61373e8949ce2c3b093528}
+      \strng{bibnamehash}{9477d295ca61373e8949ce2c3b093528}
+      \strng{authorbibnamehash}{9477d295ca61373e8949ce2c3b093528}
+      \strng{authornamehash}{9477d295ca61373e8949ce2c3b093528}
+      \strng{authorfullhash}{9477d295ca61373e8949ce2c3b093528}
+      \strng{authorfullhashraw}{9477d295ca61373e8949ce2c3b093528}
+      \field{sortinit}{7}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Project scheduling: recent models, algorithms and applications}
+      \field{volume}{14}
+      \field{year}{2012}
+    \endentry
+    \entry{emmons2012flow}{book}{}{}
+      \name{author}{2}{}{%
+        {{hash=887437bbf6a209af4d458aeea6320438}{%
+           family={Emmons},
+           familyi={E\bibinitperiod},
+           given={Hamilton},
+           giveni={H\bibinitperiod}}}%
+        {{hash=c7a6b288b7953d73f56aa13ef56cb401}{%
+           family={Vairaktarakis},
+           familyi={V\bibinitperiod},
+           given={George},
+           giveni={G\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer Science \& Business Media}%
+      }
+      \strng{namehash}{b1b9d75d3f12e420b365ed2e536ce3b7}
+      \strng{fullhash}{b1b9d75d3f12e420b365ed2e536ce3b7}
+      \strng{fullhashraw}{b1b9d75d3f12e420b365ed2e536ce3b7}
+      \strng{bibnamehash}{b1b9d75d3f12e420b365ed2e536ce3b7}
+      \strng{authorbibnamehash}{b1b9d75d3f12e420b365ed2e536ce3b7}
+      \strng{authornamehash}{b1b9d75d3f12e420b365ed2e536ce3b7}
+      \strng{authorfullhash}{b1b9d75d3f12e420b365ed2e536ce3b7}
+      \strng{authorfullhashraw}{b1b9d75d3f12e420b365ed2e536ce3b7}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Flow shop scheduling: theoretical results, algorithms, and applications}
+      \field{volume}{182}
+      \field{year}{2012}
+    \endentry
+    \entry{LI20121921}{article}{}{}
+      \name{author}{2}{}{%
+        {{hash=c9a3728dcc2397d1bab78a791b51779b}{%
+           family={Li},
+           familyi={L\bibinitperiod},
+           given={X.},
+           giveni={X\bibinitperiod}}}%
+        {{hash=aa792740773ae10ee84dae75a0132429}{%
+           family={Yin},
+           familyi={Y\bibinitperiod},
+           given={M.},
+           giveni={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{22f137bf9b1988bcba3db14677d19f5e}
+      \strng{fullhash}{22f137bf9b1988bcba3db14677d19f5e}
+      \strng{fullhashraw}{22f137bf9b1988bcba3db14677d19f5e}
+      \strng{bibnamehash}{22f137bf9b1988bcba3db14677d19f5e}
+      \strng{authorbibnamehash}{22f137bf9b1988bcba3db14677d19f5e}
+      \strng{authornamehash}{22f137bf9b1988bcba3db14677d19f5e}
+      \strng{authorfullhash}{22f137bf9b1988bcba3db14677d19f5e}
+      \strng{authorfullhashraw}{22f137bf9b1988bcba3db14677d19f5e}
+      \field{sortinit}{9}
+      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{The Permutation Flow Shop Scheduling Problem (PFSSP) is an NP-hard problem of wide engineering and theoretical background. In this paper, a kind of discrete artificial bee colony with composite mutation strategies is presented to compensate the defects of the single mutation scheme that is easy to get into the local best for PFSSP, named CDABC. Firstly, to make ABC suitable for PFSSP, we regard each discrete job permutation as a food source and apply discrete operations to generate a new neighbourhood food source for different bees. Secondly, the Nawaz-Enscore-Ham (NEH) heuristic is combined with the random initialization to initialize the population with a certain quality and diversity. Thirdly, the composite mutation strategies are proposed to enable the DABC to solve the permutation flow shop scheduling. Finally, the fast local search is used for enhancing the best individual. Within our knowledge, there are few papers to discuss artificial bee colony algorithm about PFSSP with the objective of minimizing total flow time and maximum lateness of jobs. In this sense, our work can be viewed as a start point for researchers to develop ABC-based algorithms to solve PFSSP. Additionally, simulations and comparisons based on PFSSP benchmarks are carried out, which shows that our algorithm is very competitive. We have also evaluated our algorithm with the well known DMU problems. For the problems with the objective of minimizing makespan, the algorithm CDABC obtains 26 new upper bounds of the 40 instances, and for the problems with the objective of maximum lateness, CDABC obtains 137 new upper bounds of the 160 instances. These new upper bounds can be used for future algorithms to compare their results with ours.}
+      \field{issn}{1026-3098}
+      \field{journaltitle}{Scientia Iranica}
+      \field{number}{6}
+      \field{title}{A discrete artificial bee colony algorithm with composite mutation strategies for permutation flow shop scheduling problem}
+      \field{volume}{19}
+      \field{year}{2012}
+      \field{pages}{1921\bibrangedash 1935}
+      \range{pages}{15}
+      \verb{doi}
+      \verb https://doi.org/10.1016/j.scient.2012.10.034
+      \endverb
+      \verb{urlraw}
+      \verb https://www.sciencedirect.com/science/article/pii/S1026309812002453
+      \endverb
+      \verb{url}
+      \verb https://www.sciencedirect.com/science/article/pii/S1026309812002453
+      \endverb
+      \keyw{Artificial bee colony,Mutation strategy,Permutation flow shop scheduling problem,Discrete artificial bee colony}
+    \endentry
+    \entry{perez2020permutation}{article}{}{}
+      \name{author}{3}{}{%
+        {{hash=d5a63fc725b26b5bf982bacf5fb1b06a}{%
+           family={Perez-Gonzalez},
+           familyi={P\bibinithyphendelim G\bibinitperiod},
+           given={Paz},
+           giveni={P\bibinitperiod}}}%
+        {{hash=bc27e309531b2e6fe9f0f2451938a0d0}{%
+           family={Fernandez-Viagas},
+           familyi={F\bibinithyphendelim V\bibinitperiod},
+           given={Victor},
+           giveni={V\bibinitperiod}}}%
+        {{hash=9e5846e8e2e4705727f80612179d8f0c}{%
+           family={Framinan},
+           familyi={F\bibinitperiod},
+           given={Jose\bibnamedelima M},
+           giveni={J\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier}%
+      }
+      \strng{namehash}{891a0f8dc5eeb9064c02a385f076ec0d}
+      \strng{fullhash}{ebede542e990285a95560c761caa1909}
+      \strng{fullhashraw}{ebede542e990285a95560c761caa1909}
+      \strng{bibnamehash}{ebede542e990285a95560c761caa1909}
+      \strng{authorbibnamehash}{ebede542e990285a95560c761caa1909}
+      \strng{authornamehash}{891a0f8dc5eeb9064c02a385f076ec0d}
+      \strng{authorfullhash}{ebede542e990285a95560c761caa1909}
+      \strng{authorfullhashraw}{ebede542e990285a95560c761caa1909}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Computers \& Industrial Engineering}
+      \field{title}{Permutation flowshop scheduling with periodic maintenance and makespan objective}
+      \field{volume}{143}
+      \field{year}{2020}
+      \field{pages}{106369}
+      \range{pages}{1}
+    \endentry
+    \entry{OLAFSSON2006633}{incollection}{}{}
+      \name{author}{1}{}{%
+        {{hash=054cd6b9296092e5ef23348e1b3993ed}{%
+           family={Ólafsson},
+           familyi={Ó\bibinitperiod},
+           given={Sigurdur},
+           giveni={S\bibinitperiod}}}%
+      }
+      \name{editor}{2}{}{%
+        {{hash=d60bd39f59ccc89fa650e103e0524e6b}{%
+           family={Henderson},
+           familyi={H\bibinitperiod},
+           given={Shane\bibnamedelima G.},
+           giveni={S\bibinitperiod\bibinitdelim G\bibinitperiod}}}%
+        {{hash=80ded430e28b637f5c767ad0945d40c6}{%
+           family={Nelson},
+           familyi={N\bibinitperiod},
+           given={Barry\bibnamedelima L.},
+           giveni={B\bibinitperiod\bibinitdelim L\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier}%
+      }
+      \strng{namehash}{054cd6b9296092e5ef23348e1b3993ed}
+      \strng{fullhash}{054cd6b9296092e5ef23348e1b3993ed}
+      \strng{fullhashraw}{054cd6b9296092e5ef23348e1b3993ed}
+      \strng{bibnamehash}{054cd6b9296092e5ef23348e1b3993ed}
+      \strng{authorbibnamehash}{054cd6b9296092e5ef23348e1b3993ed}
+      \strng{authornamehash}{054cd6b9296092e5ef23348e1b3993ed}
+      \strng{authorfullhash}{054cd6b9296092e5ef23348e1b3993ed}
+      \strng{authorfullhashraw}{054cd6b9296092e5ef23348e1b3993ed}
+      \strng{editorbibnamehash}{3c9fc793c93e5a1ffb8c1fc8c4cf54d3}
+      \strng{editornamehash}{3c9fc793c93e5a1ffb8c1fc8c4cf54d3}
+      \strng{editorfullhash}{3c9fc793c93e5a1ffb8c1fc8c4cf54d3}
+      \strng{editorfullhashraw}{3c9fc793c93e5a1ffb8c1fc8c4cf54d3}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Metaheuristics have been established as one of the most practical approaches to simulation optimization. However, these methods are generally designed for combinatorial optimization, and their implementations do not always adequately account for the presence of simulation noise. Research in simulation optimization, on the other hand, has focused on convergent algorithms, giving rise to the impression of a gap between research and practice. This chapter surveys the use of metaheuristics for simulation optimization, focusing on work bridging the current gap between the practical use of such methods and research, and points out some promising directions for research in this area. The main emphasis is on two issues: accounting for simulation noise in the implementation of metaheuristics, and convergence analysis of metaheuristics that is both rigorous and of practical value. To illustrate the key points, three metaheuristics are discussed in some detail and used for examples throughout, namely genetic algorithms, tabu search, and the nested partitions method.}
+      \field{booktitle}{Simulation}
+      \field{issn}{0927-0507}
+      \field{series}{Handbooks in Operations Research and Management Science}
+      \field{title}{Chapter 21 Metaheuristics}
+      \field{volume}{13}
+      \field{year}{2006}
+      \field{pages}{633\bibrangedash 654}
+      \range{pages}{22}
+      \verb{doi}
+      \verb https://doi.org/10.1016/S0927-0507(06)13021-2
+      \endverb
+      \verb{urlraw}
+      \verb https://www.sciencedirect.com/science/article/pii/S0927050706130212
+      \endverb
+      \verb{url}
+      \verb https://www.sciencedirect.com/science/article/pii/S0927050706130212
+      \endverb
+      \keyw{Simulation optimization,metaheuristics,tabu search,genetic algorithms,nested partitions method,convergence analysis}
+    \endentry
+    \entry{bertsimas1993simulated}{article}{}{}
+      \name{author}{2}{}{%
+        {{hash=5b57425178d5ae2d2835ef44cb330e42}{%
+           family={Bertsimas},
+           familyi={B\bibinitperiod},
+           given={Dimitris},
+           giveni={D\bibinitperiod}}}%
+        {{hash=9302ce71276ce9fe27267a6ef56ac19a}{%
+           family={Tsitsiklis},
+           familyi={T\bibinitperiod},
+           given={John},
+           giveni={J\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Institute of Mathematical Statistics}%
+      }
+      \strng{namehash}{e18d8c542813432948c946ea80c951c7}
+      \strng{fullhash}{e18d8c542813432948c946ea80c951c7}
+      \strng{fullhashraw}{e18d8c542813432948c946ea80c951c7}
+      \strng{bibnamehash}{e18d8c542813432948c946ea80c951c7}
+      \strng{authorbibnamehash}{e18d8c542813432948c946ea80c951c7}
+      \strng{authornamehash}{e18d8c542813432948c946ea80c951c7}
+      \strng{authorfullhash}{e18d8c542813432948c946ea80c951c7}
+      \strng{authorfullhashraw}{e18d8c542813432948c946ea80c951c7}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Statistical science}
+      \field{number}{1}
+      \field{title}{Simulated annealing}
+      \field{volume}{8}
+      \field{year}{1993}
+      \field{pages}{10\bibrangedash 15}
+      \range{pages}{6}
+    \endentry
+    \entry{van1987simulated}{incollection}{}{}
+      \name{author}{2}{}{%
+        {{hash=ddc5676165a63873d941f82719a0493a}{%
+           family={Van\bibnamedelima Laarhoven},
+           familyi={V\bibinitperiod\bibinitdelim L\bibinitperiod},
+           given={Peter\bibnamedelima JM},
+           giveni={P\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+        {{hash=5b38b801addca4a6325f2d846600b40f}{%
+           family={Aarts},
+           familyi={A\bibinitperiod},
+           given={Emile\bibnamedelima HL},
+           giveni={E\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{f5dec7124ebb0f6a0250dfb537ce40fe}
+      \strng{fullhash}{f5dec7124ebb0f6a0250dfb537ce40fe}
+      \strng{fullhashraw}{f5dec7124ebb0f6a0250dfb537ce40fe}
+      \strng{bibnamehash}{f5dec7124ebb0f6a0250dfb537ce40fe}
+      \strng{authorbibnamehash}{f5dec7124ebb0f6a0250dfb537ce40fe}
+      \strng{authornamehash}{f5dec7124ebb0f6a0250dfb537ce40fe}
+      \strng{authorfullhash}{f5dec7124ebb0f6a0250dfb537ce40fe}
+      \strng{authorfullhashraw}{f5dec7124ebb0f6a0250dfb537ce40fe}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Simulated annealing: Theory and applications}
+      \field{title}{Simulated annealing}
+      \field{year}{1987}
+      \field{pages}{7\bibrangedash 15}
+      \range{pages}{9}
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+
