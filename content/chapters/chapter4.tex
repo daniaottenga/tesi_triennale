@@ -3,13 +3,15 @@
 
 \section[Data Management and Input]{Data Management and Input}
 
-To create the inputs values, such as the number of jobs, the number of machines and the processing time for job for machine, a specific script was developed. The function of the script is to create 50 instances, in the folder of the project, to be then applied in the exact model and in the metaheuristic to analyze the differences in the results.
+To create the inputs values, such as the number of jobs, the number of machines and the processing time for job for machine, and calculates the Big-M value, the shift length and the maximal number of shifts using the data retrieved before, a specific script was developed. The function of the script is to create 50 instances, in the folder of the project, to be then applied in the exact model and in the metaheuristic to analyze the differences in the results.
 
-The logic of data creation is explained in the \textbf{Algorithm \ref{algo:mip_algorithm}}\footnote{For the full source code, please refer to Appendix \ref{app:data_creation_script}.}.
+The logic of data creation is explained in the \textbf{Algorithm \ref{algo:data_creation_algorithm}}\footnote{For the full source code, please refer to Appendix \ref{app:data_creation_script}.} while an example of the output file is shown in \textbf{\ref{lst:output_file}}.
+
+\lstinputlisting[style=txtoutput, caption={Output of the creation file (instance\_1.txt).}, label={lst:output_file}]{scripts/instance_1.txt}
 
 \begin{algorithm}
-\caption{MIP Algorithm}
-\label{algo:mip_algorithm}
+\caption{Data Creation Algorithm}
+\label{algo:data_creation_algorithm}
 \begin{algorithmic}[1]
 
     \Statex
@@ -17,82 +19,47 @@ The logic of data creation is explained in the \textbf{Algorithm \ref{algo:mip_a
         \State $n \gets RandomInteger(5, 20)$ \Comment{Generates the number of jobs}
         \State $m \gets RandomInteger(5, 10)$ \Comment{Generates the number of machines}
         \Statex
-        \State $CreateFile(Instance\_i)$
+        \State $CreateFile(instance\_i)$
         \State $WriteToFile(n, m)$ \Comment{Writes dimensions on the first line}
         \Statex
         \For{$l \gets 1$ \textbf{to} $m$}
-            \State $Row \gets []$
             \For{$i \gets 1$ \textbf{to} $n$}
                 \State $p_{ij} \gets RandomInteger(1, 100)$ \Comment{Generates the processing time}
-                \State $Append(Row, p_{ij})$
+                \State $Append(row, p_{ij})$
             \EndFor
-            \State $WriteToFile(Row)$
+            \State $WriteToFile(row)$
         \EndFor
         \Statex
-        \State $CloseFile(Instance\_i)$
-    \EndFor
+        \State $M \gets 0$
+        \State $\textit{max\_processing\_time} \gets 0$ 
+        \Statex
+        \For{$p \in p_{ij}$}
+            \State $M \gets M + p$ \Comment{Calculates the big M}
+            \State $\textit{max\_processing\_time} \gets \max(\textit{max\_processing\_time}, p)$
+        \EndFor
+        \Statex
+        \State $T \gets \textit{max\_processing\_time} * RandomInteger(2, 5)$ \Comment{Calculates the shift length}
+        \Statex
+        \State $S \gets \max(1, \lceil M / T \rceil$) \Comment{Calculates the maximal number of shifts}
+        \Statex
+        \State $WriteToFile$($M$ $T$ $S$)
+        \State $CloseFile(instance\_i)$
+        \EndFor
     
 \end{algorithmic}
 \end{algorithm}
 
-\section[MIP implementation]{MIP implementation}
+\section[MIP Implementation]{MIP Implementation}
 
-The optimal solution will be calculated using the python programming language, in particular the Python-MIP package. \textbf{Python-MIP} is a collection of Python tools for the modeling and solution of Mixed-Integer Linear programs (MIPs)\footnote{For the full source code, please refer to Appendix \ref{app:mip_implementation_script}.}.
+The optimal solution will be calculated using the python programming language, in particular the Python-MIP package. \textbf{Python-MIP} is a collection of Python tools for the modeling and solution of Mixed-Integer Linear programs (MIPs).
 
-In the \textbf{Algorithm \ref{algo:parameters}}, the script access the values of the number of jobs, the number of machines and the processing times from the file the users provides as input and calculates the Big-M value, the shift length and the maximal number of shifts using the data retrieved before:
-
-\begin{algorithm}
-\caption{Parameters}
-\label{algo:parameters}
-\begin{algorithmic}[1]
-
-    \Statex
-    \State $File \gets InputValue$  
-    \Statex
-    \If{$File Exists$}
-        \State $OpenFile(File)$ 
-        \Statex
-        \State $i \gets 1$
-        \ForAll{$\textit{Line} \in File$}
-            \If{$i = 0$}
-                \State $n \gets \text{First element of } \textit{Line}$ \Comment{Gets the number of jobs}
-                \State $m \gets \text{Second element of } \textit{Line}$ \Comment{Gets the number of machines}
-            \Else
-                \State $Times \gets []$
-                \ForAll{$\textit{Value} \in Line$}
-                    \State $Append(Times, Value)$ \Comment{Gets the processing times}
-                \EndFor
-                \State $Append(p_{ij}, Times)$
-            \EndIf
-            \State $i \gets i + 1$
-        \EndFor
-    \Statex
-    \Else
-        \State \textbf{stop}
-    \EndIf
-    \Statex
-    \State $M \gets 0$
-    \State $\textit{MaxProcessingTime} \gets 0$ 
-    \Statex
-    \For{$p \in p_{ij}$}
-        \State $M \gets M + p$ \Comment{Calculates the big M}
-        \State $\textit{MaxProcessingTime} \gets Max(\textit{MaxProcessingTime}, p)$
-    \EndFor
-    \Statex
-    \State $T \gets \textit{MaxProcessingTime} * RandomInteger(2, 5)$ \Comment{Calculates the shift length}
-    \Statex
-    \State $S \gets Max(1, \lceil M / T \rceil$) \Comment{Calculates the maximal number of shifts}
-    
-\end{algorithmic}
-\end{algorithm}
-
-Then the variables, the objective function and the constraints will be generated, in the same way as they were discussed in the third chapter. Then the model can optimize the function and give us a value. A timer is set on 300 seconds. If the computation exceeds the timer set, there are two possibilities: a feasible solution is found or no solution is found. 
+First the values created before are retrieved, then the variables, the objective function and the constraints will be generated, in the same way as they were discussed in the third chapter. Then the model can optimize the function and provide a value. A timer is set on 300 seconds. If the computation exceeds the timer set, there are two possibilities: a feasible solution is found or no solution is found\footnote{For the full source code, please refer to Appendix \ref{app:mip_implementation_script}.}. 
 
 \section[Metaheuristic Implementation]{Metaheuristic Implementation}
 
-The input creation part is the same as the previous one. The Big-M value will be generated in the same way but the shift lenght and the maximal number of shifts will be given in input from the user calculated in the previous test on the MIP implementation. To initialize the algorithm the starting temperature is values at 1000, the cooling rate at 0.9998 and the maximum number of iterations at 100000. The functions of the method are defined as follows\footnote{For the full source code, please refer to Appendix \ref{app:simulated_annealing_script}.}.
+The input retrieving part is the same as the previous one. To initialize the algorithm the starting temperature is valued at 1000, the cooling rate at 0.9998 and the maximum number of iterations at 100000. The functions of the method are defined as follows\footnote{For the full source code, please refer to Appendix \ref{app:simulated_annealing_script}.}.
 
-\subsection{Schedule operation}
+\subsection{Schedule Operation}
 
 \textbf{Algorithm \ref{algo:schedule_operation}} schedules a single operation respecting the shifts. First it states the earliest shift in which the job can start. If the job can be scheduled in the earliest shift it will finish also there otherwise it'll start and finish in the next shift.
 
@@ -102,14 +69,14 @@ The input creation part is the same as the previous one. The Big-M value will be
 \begin{algorithmic}[1]
 
     \Statex
-    \Function{ScheduleOperation}{$EarliestStart, ProcessingTime, T$}
+    \Function{ScheduleOperation}{$earliest\_start, processing\_time, T$}
         \Statex
-        \State $Shift \gets Integer(EarliestStart / T)$
+        \State $shift \gets Integer(earliest\_start / T)$
         \Statex
-        \If{$EarliestStart + ProcessingTime \le (Shift + 1) * T$}
-            \State \Return $EarliestStart + ProcessingTime$
+        \If{$earliest\_start + processing\_time \le (shift + 1) * T$}
+            \State \Return $earliest\_start + processing\_time$
         \Else
-            \State \Return $(Shift + 1) * T + ProcessingTime$
+            \State \Return $(shift + 1) * T + processing\_time$
         \EndIf
     \EndFunction
 
@@ -126,25 +93,25 @@ The input creation part is the same as the previous one. The Big-M value will be
 \begin{algorithmic}[1]
 
     \Statex
-    \Function{ComputeSchedule}{$PermutationList$}
+    \Function{ComputeSchedule}{$permutation\_list$}
         \Statex
         \For{$i \gets 1$ \textbf{to} $m$}
             \For{$l \gets 1$ \textbf{to} $n$}
                 \Statex
-                \State $j \gets PermutationList[l]$
+                \State $j \gets permutation\_list[l]$
                 \Statex
                 \If{$i = 0$ \textbf{and} $l = 0$}
-                    \State $\textit{EarliestStart} \gets 0$
+                    \State $\textit{earliest\_start} \gets 0$
                 \ElsIf{$i = 0$ \textbf{and} $l > 0$}
-                    \State $\textit{EarliestStart} \gets E_{0,l-1}$
+                    \State $\textit{earliest\_start} \gets E_{0,l-1}$
                 \ElsIf{$i > 0$ \textbf{and} $l = 0$}
-                    \State $\textit{EarliestStart} \gets E_{i-1,0}$
+                    \State $\textit{earliest\_start} \gets E_{i-1,0}$
                 \Else
-                    \State $\textit{EarliestStart} \gets \max(E_{i-1,l}, E_{i,l-1})$
+                    \State $\textit{earliest\_start} \gets \max(E_{i-1,l}, E_{i,l-1})$
                 \EndIf
                 \Statex
 
-                \State $E_{i,l} \gets \text{\textsc{ScheduleOperation}}(\textit{EarliestStart}, p_{i,j}, T)$
+                \State $E_{i,l} \gets \text{\textsc{ScheduleOperation}}(\textit{earliest\_start}, p_{i,j}, T)$
             \EndFor
         \EndFor
         \Statex
@@ -154,7 +121,7 @@ The input creation part is the same as the previous one. The Big-M value will be
 \end{algorithmic}
 \end{algorithm}
 
-\subsection{Compute Schedule}
+\subsection{Makespan}
 
 \textbf{Algorithm \ref{algo:makespan}} gives the total makespan of the job shop.
 
@@ -164,9 +131,9 @@ The input creation part is the same as the previous one. The Big-M value will be
 \begin{algorithmic}[1]
 
     \Statex
-    \Function{Makespan}{$PermutationList$}
+    \Function{Makespan}{$permutation\_list$}
         \Statex
-        \State $E \gets \text{\textsc{ComputeSchedule}}(\textit{PermutationList})$
+        \State $E \gets \text{\textsc{ComputeSchedule}}(\textit{permutation\_list})$
         \State \Return $E_{m-1,n-1}$
     \EndFunction
 
@@ -177,19 +144,64 @@ The input creation part is the same as the previous one. The Big-M value will be
 
 \textbf{Algorithm \ref{algo:swap_move}} swaps two random jobs to see if the solution is better or worse.
 
-
 \begin{algorithm}
 \caption{Swap Move}
 \label{algo:swap_move}
 \begin{algorithmic}[1]
 
     \Statex
-    \Function{SwapMove}{$PermutationList$}
+    \Function{SwapMove}{$permutation\_list$}
         \Statex
-        \State Select two random indexes $i, j \in \{1, \dots, |\textit{PermutationList}|\}$      
-        \State \Return $E_{m-1,n-1}$
-        \State $\textit{PermutationList}[i], \textit{PermutationList}[j] \gets \textit{PermutationList}[j], \textit{PermutationList}[i]$
-        \State \Return \textit{PermutationList}
+        \State Select two random indexes $i, j \in \{1, \dots, |\textit{permutation\_list}|\}$      
+        \State $\textit{permutation\_list}[i] \gets \textit{permutation\_list}[j]$
+        \State $\textit{permutation\_list}[j] \gets \textit{permutation\_list}[i]$
+        \State \Return \textit{permutation\_list}
+    \EndFunction
+
+\end{algorithmic}
+\end{algorithm}
+
+\subsection{Insertion Move}
+
+\textbf{Algorithm \ref{algo:insertion_move}} inserts a job in a different position to see if the solution is better or worse
+
+\begin{algorithm}
+\caption{Insertion Move}
+\label{algo:insertion_move}
+\begin{algorithmic}[1]
+
+    \Statex
+    \Function{InsertionMove}{$permutation\_list$}
+        \Statex
+        \State Select two random indexes $i, j \in \{1, \dots, |\textit{permutation\_list}|\}$      
+        \State $elem \gets permutation\_list[i]$
+        \State $\Call{RemoveAt}{permutation\_list, i}$
+        \State $\Call{InsertAt}{permutation\_list, j, elem}$
+        \State \Return \textit{permutation\_list}
+    \EndFunction
+
+\end{algorithmic}
+\end{algorithm}
+
+\subsection{Get Neighbour}
+
+\textbf{Algorithm \ref{algo:get_neighbour}} takes on a 50/50 possibility the swap or the insertion move.
+
+\begin{algorithm}
+\caption{Get Neighbour}
+\label{algo:get_neighbour}
+\begin{algorithmic}[1]
+
+    \Statex
+    \Function{GetNeighbour}{$permutation\_list$}
+        \Statex
+        \State $choice \gets RandomInteger(0, 1)$
+        \Statex
+        \If{$choice = 0$}
+            \State \Return $\text{\textsc{SwapMove}}(\textit{permutation\_list})$
+        \Else
+            \State \Return $\text{\textsc{InsertionMove}}(\textit{permutation\_list})$
+        \EndIf
     \EndFunction
 
 \end{algorithmic}
@@ -197,14 +209,46 @@ The input creation part is the same as the previous one. The Big-M value will be
 
 \subsection{Simulated Annealing}
 
+\textbf{Algorithm \ref{algo:simulated_annealing}} computes the entire algorithm. The initial solution, sorted by descending values of the sum of the processing time for every job, is selected. The best actual solution is the initial solution. Then iterating for the maximal number of iterations (100000): creates a neighbour to the solution using swapping or insert and calculates the cost difference between the actual and the neighbour cost. If the neighbour is better it is always accepted, else it is accepted with probability $e^{-\Delta/T}$. If the current solution is better than the best solution, it is updated. Then geometric cooling is implemented: if the temperature is too low the iteration is stopped.
+
 \begin{algorithm}
 \caption{Simulated annealing}
 \label{algo:simulated_annealing}
 \begin{algorithmic}[1]
 
     \Statex
-    \Statex \Comment{We select the initial solution sorted by descending values of the sum of the processing time for every job}
-    \State $\textit{current\_list} \gets \text{jobs } \{1, \dots, n\} \text{ sorted in descending order of } \sum_{i=1}^{m} p_{ij}$
+    \Function{SimulatedAnnealing}{$\textit{temperature}, \alpha, \textit{max\_iterations}$}
+        \Statex
+        \State $\textit{current\_list} \gets \text{jobs } \{1, \dots, n\} \text{ sorted in descending order of } \sum_{i=1}^{m} p_{ij}$
+        \State $\textit{current\_cost} \gets\text{\textsc{Makespan}}(\textit{permutation\_list})$
+        \Statex
+        \State $\textit{best\_list} \gets \textit{current\_list}$
+        \State $\textit{best\_cost} \gets \textit{current\_cost}$
+        \Statex
+        \For{$\textit{iteration} \gets 1 \textbf{ to } \textit{max\_iterations}$}
+            \Statex
+            \State $\textit{neighbour\_list} \gets {\textsc{GetNeighbour}}(\textit{current\_list})$
+            \State $\textit{neighbour\_cost} \gets {\textsc{Makespan}}(\textit{neighbour\_list})$
+            \State $\Delta \gets \textit{neighbour\_cost} - \textit{current\_cost}$
+            \Statex
+            \If{$\Delta \ge 0 \textbf{ or } RandomNumber < e^{-\Delta/T}$}
+                \State $\textit{current\_list} \gets \textit{neighbour\_list}$
+                \State $\textit{current\_cost} \gets \textit{neighbour\_cost}$
+            \EndIf
+            \Statex
+            \If{$\textit{current\_cost} < \textit{best\_cost}$}
+                \State $\textit{best\_list} \gets \textit{current\_list}$
+                \State $\textit{best\_cost} \gets \textit{current\_cost}$
+            \EndIf
+            \Statex    
+            \State $\textit{temperature} \gets \textit{temperature} * \alpha$
+            \If{$\textit{temperature} < 10^{-3}$}
+                \State \textbf{break}
+            \EndIf
+        \EndFor
+        \Statex
+        \State \Return \textit{best\_list, best\_cost}
+    \EndFunction
 
 \end{algorithmic}
 \end{algorithm}
@@ -214,11 +258,15 @@ The input creation part is the same as the previous one. The Big-M value will be
 
 For the visualization of the results it was used the python library ``matplotlib'' to generate a \textbf{Gantt Chart}. On the $x$-axis the time is displayed and on the $y$-axis the machines are shown. The planning starts from the first machine on top and procedes downwards to the last. Every job is indicated with the $j_n$ notation and has a specific color to distinguish from the others. The idle times are yellow colored with oblique lines and the text ``maintenance''.
 
-In figure \textbf{\ref{fig:gantt_chart}} is presented a simple example.
+In \textbf{Figure \ref{fig:gantt_chart}} is presented a simple example.
 
 \begin{figure}
     \centering
-    \includegraphics[width=0.95\textwidth]{images/gantt_chart.png}
+    \includegraphics[width=0.95\textwidth]{images/gantt_chart_ex.png}
     \caption{Representation of the solution to the problem with the Gantt Chart}
     \label{fig:gantt_chart}
 \end{figure}
+
+\section[Automation of the Implementation]{Automation of the Implementation}
+
+To implement all of the fifty instances, an automation script was created. The aim is to give the current index to the MIP solver and the metaheuristic, then they will find the related instance created and solve the problem. The results will be saved in a gantt chart format and in a CSV\footnote{For the full source code, please refer to Appendix \ref{app:automation_script}.}.

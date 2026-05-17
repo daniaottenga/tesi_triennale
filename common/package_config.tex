@@ -98,3 +98,16 @@
 \setcounter{biburllcpenalty}{9000}
 % If you want to break on URL UPPER CASE letters
 \setcounter{biburlucpenalty}{9000}
+
+\lstdefinestyle{txtoutput}{
+    basicstyle=\ttfamily\footnotesize,
+    backgroundcolor=\color{gray!5},
+    frame=leftline,
+    rulecolor=\color{gray!40},
+    linewidth=\linewidth,
+    breaklines=true,
+    keepspaces=true,
+    showstringspaces=false,
+	literate={_}{{\_}}1
+              {^}{{\textasciicircum}}1
+}

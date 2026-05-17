@@ -26,15 +26,19 @@
 
 \section{Data Generation Script}
 \label{app:data_creation_script}
-\lstinputlisting{creation_files.py}
+\lstinputlisting{scripts/creation_files.py}
 
 \section{MIP implementation Script}
 \label{app:mip_implementation_script}
-\lstinputlisting{main.py}
+\lstinputlisting{scripts/main.py}
 
 \section{Simulated Annealing Script}
 \label{app:simulated_annealing_script}
-\lstinputlisting{simulated_annealing.py}
+\lstinputlisting{scripts/simulated_annealing.py}
+
+\section{Automation Script}
+\label{app:automation_script}
+\lstinputlisting{scripts/automation.py}
 
 % lstlisting environment for direct inclusion
 % \begin{lstlisting}[language=Python]
@@ -47,3 +51,49 @@
 % verbatim
 %\verb+numpy+
 
+\DTLsetseparator{;}
+
+\DTLloaddb{results}{scripts/results.csv}
+
+\setlength{\tabcolsep}{3pt} 
+{\footnotesize 
+
+\begin{longtable}{l c c c c c c c}
+
+    \caption{Computational results: Exact Algorithm vs. Metaheuristic.} \label{tab:results_comparison_lb} \\
+    
+    \toprule
+    & \multicolumn{3}{c}{\textbf{Exact Alg. (MIP)}} & \multicolumn{2}{c}{\textbf{Metaheuristic}} & \multicolumn{2}{c}{\textbf{Gaps (\%)}} \\
+    \cmidrule(lr){2-4} \cmidrule(lr){5-6} \cmidrule(lr){7-8}
+    \textbf{Inst.} & \textbf{LB} & \textbf{Best Obj.} & \textbf{Time (s)} & \textbf{Obj.} & \textbf{Time (s)} & \textbf{vs Best} & \textbf{vs LB} \\
+    \midrule
+    \endfirsthead
+    
+    \multicolumn{8}{c}{{\bfseries \tablename\ \thetable{} -- Continuation from the previous page}} \\
+    \toprule
+    & \multicolumn{3}{c}{\textbf{Exact Alg. (MIP)}} & \multicolumn{2}{c}{\textbf{Metaheuristic}} & \multicolumn{2}{c}{\textbf{Gaps (\%)}} \\
+    \cmidrule(lr){2-4} \cmidrule(lr){5-6} \cmidrule(lr){7-8}
+    \textbf{Inst.} & \textbf{LB} & \textbf{Best Obj.} & \textbf{Time (s)} & \textbf{Obj.} & \textbf{Time (s)} & \textbf{vs Best} & \textbf{vs LB} \\
+    \midrule
+    \endhead
+    
+    \midrule
+    \multicolumn{8}{r}{{Continues in the next page...}} \\
+    \footnotemark
+    \endfoot
+    
+    \bottomrule
+    \multicolumn{8}{l}{\footnotesize * Best feasible solution found. Time limit reached.} \\
+    \endlastfoot
+    
+    \noalign{\global\let\DTLcurrentline\relax}
+    \DTLforeach{results}{
+        \Inst=Instance,\LB=LB,\BestObj=Best Obj.,\TimeMIP=Time 1,\ObjMeta=Obj.,\TimeMeta=Time 2,\GapBest=vs Best,\GapLB=vs LB
+    }{
+        \detokenize\expandafter{\Inst} & \LB & \BestObj & \TimeMIP & \ObjMeta & \TimeMeta & \GapBest & \GapLB \\
+    }
+
+\end{longtable}
+}
+
+\end{document}
