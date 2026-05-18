@@ -3,7 +3,7 @@
 
 \section[Data Management and Input]{Data Management and Input}
 
-To create the inputs values, such as the number of jobs, the number of machines and the processing time for job for machine, and calculates the Big-M value, the shift length and the maximal number of shifts using the data retrieved before, a specific script was developed. The function of the script is to create 50 instances, in the folder of the project, to be then applied in the exact model and in the metaheuristic to analyze the differences in the results.
+To create the inputs values, such as the number of jobs, the number of machines and the processing time for job for machine and calculate the Big-M value, the shift length and the maximal number of shifts using the data retrieved before, a specific script was developed. The function of the script is to create 50 instances, in the folder of the project, to be then applied in the exact model and in the metaheuristic to analyze the differences in the results.
 
 The logic of data creation is explained in the \textbf{Algorithm \ref{algo:data_creation_algorithm}}\footnote{For the full source code, please refer to Appendix \ref{app:data_creation_script}.} while an example of the output file is shown in \textbf{\ref{lst:output_file}}.
 
@@ -15,19 +15,20 @@ The logic of data creation is explained in the \textbf{Algorithm \ref{algo:data_
 \begin{algorithmic}[1]
 
     \Statex
-    \For{$i \gets 1$ \textbf{to} $50$} \Comment{Generates 50 different instances}
-        \State $n \gets RandomInteger(5, 20)$ \Comment{Generates the number of jobs}
-        \State $m \gets RandomInteger(5, 10)$ \Comment{Generates the number of machines}
+    \For{$k \gets 1$ \textbf{to} $50$} \Comment{Generates 50 different instances}
+        \State $n \gets \textit{RandomInteger}(5, 20)$ \Comment{Generates the number of jobs}
+        \State $m \gets \textit{RandomInteger}(5, 10)$ \Comment{Generates the number of machines}
         \Statex
-        \State $CreateFile(instance\_i)$
-        \State $WriteToFile(n, m)$ \Comment{Writes dimensions on the first line}
+        \State $\textit{CreateFile}(\textit{instance\_i})$
+        \State $\textit{WriteToFile}(n, m)$ \Comment{Writes dimensions on the first line}
         \Statex
-        \For{$l \gets 1$ \textbf{to} $m$}
-            \For{$i \gets 1$ \textbf{to} $n$}
-                \State $p_{ij} \gets RandomInteger(1, 100)$ \Comment{Generates the processing time}
-                \State $Append(row, p_{ij})$
+        \State $\textit{row} \gets [$ $]$
+        \For{$i \gets 1$ \textbf{to} $m$}
+            \For{$j \gets 1$ \textbf{to} $n$}
+                \State $p_{ij} \gets \textit{RandomInteger}(1, 100)$ \Comment{Generates the processing time}
+                \State $\textit{Append}(\textit{row}, p_{ij})$
             \EndFor
-            \State $WriteToFile(row)$
+            \State $\textit{WriteToFile}(\textit{row})$
         \EndFor
         \Statex
         \State $M \gets 0$
@@ -38,12 +39,12 @@ The logic of data creation is explained in the \textbf{Algorithm \ref{algo:data_
             \State $\textit{max\_processing\_time} \gets \max(\textit{max\_processing\_time}, p)$
         \EndFor
         \Statex
-        \State $T \gets \textit{max\_processing\_time} * RandomInteger(2, 5)$ \Comment{Calculates the shift length}
+        \State $T \gets \textit{max\_processing\_time} * \textit{RandomInteger}(2, 5)$ \Comment{Calculates the shift length}
         \Statex
         \State $S \gets \max(1, \lceil M / T \rceil$) \Comment{Calculates the maximal number of shifts}
         \Statex
-        \State $WriteToFile$($M$ $T$ $S$)
-        \State $CloseFile(instance\_i)$
+        \State $\textit{WriteToFile}$($M$ $T$ $S$)
+        \State $\textit{CloseFile}(\textit{instance\_i})$
         \EndFor
     
 \end{algorithmic}
@@ -57,7 +58,7 @@ First the values created before are retrieved, then the variables, the objective
 
 \section[Metaheuristic Implementation]{Metaheuristic Implementation}
 
-The input retrieving part is the same as the previous one. To initialize the algorithm the starting temperature is valued at 1000, the cooling rate at 0.9998 and the maximum number of iterations at 100000. The functions of the method are defined as follows\footnote{For the full source code, please refer to Appendix \ref{app:simulated_annealing_script}.}.
+The input retrieving part is the same as the previous one. To initialize the algorithm the \textbf{starting temperature} is valued at 1000, the \textbf{cooling rate} at 0.9998 and the \textbf{maximum number of iterations} at 100000. The functions of the method are defined as follows\footnote{For the full source code, please refer to Appendix \ref{app:simulated_annealing_script}.}.
 
 \subsection{Schedule Operation}
 
@@ -69,14 +70,14 @@ The input retrieving part is the same as the previous one. To initialize the alg
 \begin{algorithmic}[1]
 
     \Statex
-    \Function{ScheduleOperation}{$earliest\_start, processing\_time, T$}
+    \Function{ScheduleOperation}{$\textit{earliest\_start}$, $\textit{processing\_time}$, $T$}
         \Statex
-        \State $shift \gets Integer(earliest\_start / T)$
+        \State $\textit{shift} \gets \textit{Integer}(\textit{earliest\_start} / T)$
         \Statex
-        \If{$earliest\_start + processing\_time \le (shift + 1) * T$}
-            \State \Return $earliest\_start + processing\_time$
+        \If{$\textit{earliest\_start} + \textit{processing\_time} \le (\textit{shift} + 1) * T$}
+            \State \Return $\textit{earliest\_start} + \textit{processing\_time}$
         \Else
-            \State \Return $(shift + 1) * T + processing\_time$
+            \State \Return $(\textit{shift} + 1) * T + \textit{processing\_time}$
         \EndIf
     \EndFunction
 
@@ -85,7 +86,7 @@ The input retrieving part is the same as the previous one. To initialize the alg
 
 \subsection{Compute Schedule}
 
-\textbf{Algorithm \ref{algo:compute_schedule}} computes the E matrix given a permutation list. First it selects the number of the job. If the first machine and the first job are chosen, the earliest start equals zero. If the first machine but not the first job are chosen, we take the complection time of the job before in the same machine. If the first job but not the first machine are chosen, we take the complection time of the first job of the machine before. If neither the first machine or the first job are chosen, we take the biggest between the complection time of the job before in the same machine and of the same job in the machine before. Knowing now the earliest start we schedule the operation.
+\textbf{Algorithm \ref{algo:compute_schedule}} computes the E matrix given a permutation list. First it selects the number of the job. If the first machine and the first job are chosen, the earliest start is at the beginning (zero). If the first machine but not the first job are chosen, the completion time of the job before in the same machine is taken. If the first job but not the first machine are chosen, the completion time of the first job of the machine before is taken. If neither the first machine or the first job are chosen, the biggest between the completion time of the job before in the same machine and of the same job in the machine before is taken. Knowing now the earliest start the operation can be scheduled.
 
 \begin{algorithm}
 \caption{Compute Schedule}
@@ -93,12 +94,12 @@ The input retrieving part is the same as the previous one. To initialize the alg
 \begin{algorithmic}[1]
 
     \Statex
-    \Function{ComputeSchedule}{$permutation\_list$}
+    \Function{ComputeSchedule}{$\textit{permutation\_list}$}
         \Statex
         \For{$i \gets 1$ \textbf{to} $m$}
             \For{$l \gets 1$ \textbf{to} $n$}
                 \Statex
-                \State $j \gets permutation\_list[l]$
+                \State $j \gets \textit{permutation\_list}[l]$
                 \Statex
                 \If{$i = 0$ \textbf{and} $l = 0$}
                     \State $\textit{earliest\_start} \gets 0$
@@ -131,7 +132,7 @@ The input retrieving part is the same as the previous one. To initialize the alg
 \begin{algorithmic}[1]
 
     \Statex
-    \Function{Makespan}{$permutation\_list$}
+    \Function{Makespan}{$\textit{permutation\_list}$}
         \Statex
         \State $E \gets \text{\textsc{ComputeSchedule}}(\textit{permutation\_list})$
         \State \Return $E_{m-1,n-1}$
@@ -150,7 +151,7 @@ The input retrieving part is the same as the previous one. To initialize the alg
 \begin{algorithmic}[1]
 
     \Statex
-    \Function{SwapMove}{$permutation\_list$}
+    \Function{SwapMove}{$\textit{permutation\_list}$}
         \Statex
         \State Select two random indexes $i, j \in \{1, \dots, |\textit{permutation\_list}|\}$      
         \State $\textit{permutation\_list}[i] \gets \textit{permutation\_list}[j]$
@@ -171,12 +172,12 @@ The input retrieving part is the same as the previous one. To initialize the alg
 \begin{algorithmic}[1]
 
     \Statex
-    \Function{InsertionMove}{$permutation\_list$}
+    \Function{InsertionMove}{$\textit{permutation\_list}$}
         \Statex
         \State Select two random indexes $i, j \in \{1, \dots, |\textit{permutation\_list}|\}$      
-        \State $elem \gets permutation\_list[i]$
-        \State $\Call{RemoveAt}{permutation\_list, i}$
-        \State $\Call{InsertAt}{permutation\_list, j, elem}$
+        \State $\textit{elem} \gets \textit{permutation\_list}[i]$
+        \State $\Call{RemoveAt}{\textit{permutation\_list}, i}$
+        \State $\Call{InsertAt}{\textit{permutation\_list}, j, \textit{elem}}$
         \State \Return \textit{permutation\_list}
     \EndFunction
 
@@ -193,11 +194,11 @@ The input retrieving part is the same as the previous one. To initialize the alg
 \begin{algorithmic}[1]
 
     \Statex
-    \Function{GetNeighbour}{$permutation\_list$}
+    \Function{GetNeighbour}{$\textit{permutation\_list}$}
         \Statex
-        \State $choice \gets RandomInteger(0, 1)$
+        \State $\textit{choice} \gets \textit{RandomInteger}(0, 1)$
         \Statex
-        \If{$choice = 0$}
+        \If{$\textit{choice} = 0$}
             \State \Return $\text{\textsc{SwapMove}}(\textit{permutation\_list})$
         \Else
             \State \Return $\text{\textsc{InsertionMove}}(\textit{permutation\_list})$
@@ -209,7 +210,7 @@ The input retrieving part is the same as the previous one. To initialize the alg
 
 \subsection{Simulated Annealing}
 
-\textbf{Algorithm \ref{algo:simulated_annealing}} computes the entire algorithm. The initial solution, sorted by descending values of the sum of the processing time for every job, is selected. The best actual solution is the initial solution. Then iterating for the maximal number of iterations (100000): creates a neighbour to the solution using swapping or insert and calculates the cost difference between the actual and the neighbour cost. If the neighbour is better it is always accepted, else it is accepted with probability $e^{-\Delta/T}$. If the current solution is better than the best solution, it is updated. Then geometric cooling is implemented: if the temperature is too low the iteration is stopped.
+\textbf{Algorithm \ref{algo:simulated_annealing}} computes the entire algorithm. The initial solution, sorted by descending values of the sum of the processing time for every job, is selected. The best actual solution is the initial solution. Then, iterating for the maximal number of iterations (100000), it creates a neighbour to the solution (using swapping or insert) and calculates the cost difference between the actual and the neighbour cost. If the neighbour is better it is always accepted, else it is accepted with probability $e^{-\Delta/T}$ where $\Delta$ is the difference between the neighbour and the current cost. If the current solution is better than the best solution, it is updated. Then geometric cooling is implemented: if the temperature is too low the iteration is stopped.
 
 \begin{algorithm}
 \caption{Simulated annealing}
@@ -231,7 +232,7 @@ The input retrieving part is the same as the previous one. To initialize the alg
             \State $\textit{neighbour\_cost} \gets {\textsc{Makespan}}(\textit{neighbour\_list})$
             \State $\Delta \gets \textit{neighbour\_cost} - \textit{current\_cost}$
             \Statex
-            \If{$\Delta \ge 0 \textbf{ or } RandomNumber < e^{-\Delta/T}$}
+            \If{$\Delta \ge 0 \textbf{ or } \textit{RandomNumber} < e^{-\Delta/T}$}
                 \State $\textit{current\_list} \gets \textit{neighbour\_list}$
                 \State $\textit{current\_cost} \gets \textit{neighbour\_cost}$
             \EndIf
@@ -256,7 +257,7 @@ The input retrieving part is the same as the previous one. To initialize the alg
 
 \section[Results Visualization: The Gantt Chart Generator]{Results Visualization: The Gantt Chart Generator}
 
-For the visualization of the results it was used the python library ``matplotlib'' to generate a \textbf{Gantt Chart}. On the $x$-axis the time is displayed and on the $y$-axis the machines are shown. The planning starts from the first machine on top and procedes downwards to the last. Every job is indicated with the $j_n$ notation and has a specific color to distinguish from the others. The idle times are yellow colored with oblique lines and the text ``maintenance''.
+For the visualization of the results it was used the python library ``matplotlib'' to generate a \textbf{Gantt Chart}. On the $x$-axis the time is displayed and on the $y$-axis the machines are shown. The planning starts from the first machine on top and proceeds downwards to the last. Every job is indicated with the $j_n$ notation and has a specific color to distinguish from the others. The idle times are yellow colored with oblique lines and the text ``maintenance''.
 
 In \textbf{Figure \ref{fig:gantt_chart}} is presented a simple example.
 
@@ -270,3 +271,47 @@ In \textbf{Figure \ref{fig:gantt_chart}} is presented a simple example.
 \section[Automation of the Implementation]{Automation of the Implementation}
 
 To implement all of the fifty instances, an automation script was created. The aim is to give the current index to the MIP solver and the metaheuristic, then they will find the related instance created and solve the problem. The results will be saved in a gantt chart format and in a CSV\footnote{For the full source code, please refer to Appendix \ref{app:automation_script}.}.
+
+\begin{algorithm}
+\caption{Automation}
+\label{algo:automation}
+\begin{algorithmic}[1]
+
+    \Statex
+    \State $\textit{CreateFile}(\textit{results.csv})$
+    \Statex
+    \For{$i \gets 1$ \textbf{to} $50$}
+        \State $\textit{solution, } lb \textit{, time1} \gets \textit{mip\_solver}(i)$
+        \State $\textit{metaheuristic, } \textit{time2} \gets \textit{simulated\_annealing}(i)$
+        \Statex
+        \If{$\textit{time1} \ge 300$}
+            \State $\textit{time1} \gets \text{"300*"}$
+        \Else
+            \State $\textit{time1} \gets \textit{round time1 to 4 decimal places}$
+        \EndIf
+        \Statex
+        \If{$\textit{solution is not None}$}
+            \State $\textit{vs\_best} \gets (\textit{methaeuristic} - \textit{solution}) / \textit{solution} * 100$
+            \State $\textit{solution} \gets \textit{Integer}(\textit{solution})$
+            \State $\textit{vs\_best} \gets \textit{round vs\_best to 2 decimal places}$
+        \Else
+            \State $\textit{vs\_best} \gets -$
+            \State $\textit{solution} \gets -$
+        \EndIf
+        \Statex
+        \If $\textit{lb is not None}$
+            \State $\textit{vs\_lb} \gets (\textit{methaeuristic} - \textit{lb}) / \textit{lb} * 100$
+            \State $\textit{vs\_lb} \gets \textit{round vs\_lb to 2 decimal places}$
+        \Else
+            \State $\textit{vs\_lb} \gets -$
+        \EndIf
+        \Statex
+        \State $\textit{time2} \gets \textit{round time2 to 4 decimal places}$
+        \State $\textit{lb} \gets \textit{Integer}(\textit{lb})$
+        \Statex
+        \State $\textit{WriteToFile}$($i$, $lb$, \textit{solution}, \textit{time1}, \textit{metaheristic}, \textit{time2}, \textit{vs\_best}, \textit{vs\_lb})
+    \EndFor
+
+
+\end{algorithmic}
+\end{algorithm}

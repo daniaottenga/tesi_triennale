@@ -74,7 +74,7 @@ def simulated_annealing(number):
     # It computes the E matrix given a permutation list
     def compute_schedule(permutation_list):
 
-        # Complection time of job in machine i in position l (E[i][l])
+        # Completion time of job in machine i in position l (E[i][l])
         E = [[0.0] * n for _ in range(m)]
 
         for i in range(m):
@@ -86,15 +86,15 @@ def simulated_annealing(number):
                 if i == 0 and l == 0:
                     earliest_start = 0
 
-                # If it's the first machine but not the first job we take the complection time of the job before in the same machine
+                # If it's the first machine but not the first job we take the completion time of the job before in the same machine
                 elif i == 0 and l > 0:
                     earliest_start = E[0][l - 1]
 
-                # If it's the first job but not the first machine we take the complection time of the first job of the machine before
+                # If it's the first job but not the first machine we take the completion time of the first job of the machine before
                 elif i > 0 and l == 0:
                     earliest_start = E[i - 1][0]
 
-                # If it's not the first machine and not the first job we take the biggest between the complection time of the job before in the same machine and of the same job in the machine before
+                # If it's not the first machine and not the first job we take the biggest between the completion time of the job before in the same machine and of the same job in the machine before
                 else:
                     earliest_start = max(E[i - 1][l], E[i][l - 1])
 

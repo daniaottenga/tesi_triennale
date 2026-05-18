@@ -60,7 +60,7 @@ def function(number):
     ''' VARIABLES '''
     # =================
 
-    # Complection time of job in machine i in position l (E il)
+    # Completion time of job in machine i in position l (E il)
     E = [[mod.add_var(name="E({},{})".format(i, l), var_type = INTEGER)
                                    for l in range(n)]
                                   for i in range(m)]
@@ -99,7 +99,7 @@ def function(number):
     for (i, l) in product (range(m - 1), range(n)):
         mod += E[i][l] + xsum(p[i + 1][j] * Z[j][l] for j in range(n)) <= E[i + 1][l]
 
-    # Complection time of the job scheduled in the first position in the first machine
+    # Completion time of the job scheduled in the first position in the first machine
     mod += E[0][0] >= xsum(p[0][j] * Z[j][0] for j in range(n))
 
     # Each operation that starts in a shift finishes in the same
