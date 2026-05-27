@@ -23,25 +23,25 @@
 \contentsline {section}{\numberline {3.4}The Proposed Metaheuristic}{9}{section.3.4}%
 \contentsline {chapter}{\numberline {4}Procedures}{11}{chapter.4}%
 \contentsline {section}{\numberline {4.1}Data Management and Input}{11}{section.4.1}%
-\contentsline {section}{\numberline {4.2}MIP Implementation}{11}{section.4.2}%
-\contentsline {section}{\numberline {4.3}Metaheuristic Implementation}{13}{section.4.3}%
-\contentsline {subsection}{\numberline {4.3.1}Schedule Operation}{13}{subsection.4.3.1}%
-\contentsline {subsection}{\numberline {4.3.2}Compute Schedule}{13}{subsection.4.3.2}%
+\contentsline {section}{\numberline {4.2}MIP Implementation}{12}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Metaheuristic Implementation}{12}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}Schedule Operation}{12}{subsection.4.3.1}%
+\contentsline {subsection}{\numberline {4.3.2}Compute Schedule}{14}{subsection.4.3.2}%
 \contentsline {subsection}{\numberline {4.3.3}Makespan}{14}{subsection.4.3.3}%
-\contentsline {subsection}{\numberline {4.3.4}Swap Move}{14}{subsection.4.3.4}%
+\contentsline {subsection}{\numberline {4.3.4}Swap Move}{16}{subsection.4.3.4}%
 \contentsline {subsection}{\numberline {4.3.5}Insertion Move}{16}{subsection.4.3.5}%
 \contentsline {subsection}{\numberline {4.3.6}Get Neighbour}{16}{subsection.4.3.6}%
 \contentsline {subsection}{\numberline {4.3.7}Simulated Annealing}{16}{subsection.4.3.7}%
-\contentsline {section}{\numberline {4.4}Results Visualization: The Gantt Chart Generator}{18}{section.4.4}%
-\contentsline {section}{\numberline {4.5}Automation of the Implementation}{18}{section.4.5}%
+\contentsline {section}{\numberline {4.4}Results Visualization: The Gantt Chart Generator}{19}{section.4.4}%
+\contentsline {section}{\numberline {4.5}Automation of the Implementation}{19}{section.4.5}%
 \contentsline {chapter}{\numberline {5}Results}{21}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Table \ref {tab:results_comparison_lb} Analysis}{21}{section.5.1}%
-\contentsline {subsection}{\numberline {5.1.1}Analysis of the obj. values}{21}{subsection.5.1.1}%
-\contentsline {subsection}{\numberline {5.1.2}Computational Time Analysis}{24}{subsection.5.1.2}%
-\contentsline {subsection}{\numberline {5.1.3}\% Gap Analysis}{25}{subsection.5.1.3}%
-\contentsline {chapter}{\numberline {6}Conclusions}{27}{chapter.6}%
-\contentsline {chapter}{\numberline {A}Scripts}{29}{appendix.A}%
-\contentsline {section}{\numberline {A.1}Data Generation Script}{29}{section.A.1}%
-\contentsline {section}{\numberline {A.2}MIP implementation Script}{30}{section.A.2}%
-\contentsline {section}{\numberline {A.3}Simulated Annealing Script}{36}{section.A.3}%
-\contentsline {section}{\numberline {A.4}Automation Script}{44}{section.A.4}%
+\contentsline {section}{\numberline {5.1}Analysis of the obj. values}{23}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Computational Time Analysis}{23}{section.5.2}%
+\contentsline {section}{\numberline {5.3}\% Gap Analysis}{25}{section.5.3}%
+\contentsline {section}{\numberline {5.4}Gantt Charts Analysis}{27}{section.5.4}%
+\contentsline {chapter}{\numberline {6}Conclusions}{31}{chapter.6}%
+\contentsline {chapter}{\numberline {A}Scripts}{33}{appendix.A}%
+\contentsline {section}{\numberline {A.1}Data Generation Script}{33}{section.A.1}%
+\contentsline {section}{\numberline {A.2}MIP implementation Script}{34}{section.A.2}%
+\contentsline {section}{\numberline {A.3}Simulated Annealing Script}{40}{section.A.3}%
+\contentsline {section}{\numberline {A.4}Automation Script}{48}{section.A.4}%

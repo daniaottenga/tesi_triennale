@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.4.30)  18 MAY 2026 15:47
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.4.30)  27 MAY 2026 23:31
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1698,60 +1698,93 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `lmtt' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
- (./scripts/instance_1.txt)
-Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on input line 13.
- [11
+ (./scripts/instance_1.txt) [11
 
-] [12] [13] [14] [15] [16]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [17]
-<images/gantt_chart_ex.png, id=433, 925.056pt x 433.62pt>
+]
+Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on input line 35.
+ [12] [13] [14] [15] [16] [17] [18]
+<images/gantt_chart_ex.png, id=445, 925.056pt x 433.62pt>
 File: images/gantt_chart_ex.png Graphic file (type png)
 <use images/gantt_chart_ex.png>
-Package pdftex.def Info: images/gantt_chart_ex.png  used on input line 266.
+Package pdftex.def Info: images/gantt_chart_ex.png  used on input line 233.
 (pdftex.def)             Requested size: 397.3397pt x 186.25447pt.
-) (./content/chapters/chapter5.tex [18 <./images/gantt_chart_ex.png>] [19] [20
+) (./content/chapters/chapter5.tex [19 <./images/gantt_chart_ex.png>] [20
 
 ]
 Chapter 5.
-[21
+\dtldb@results=\toks89
+\dtlkeys@results=\toks90
+\dtlrows@results=\count622
+\dtlcols@results=\count623
+
+ignored: Infinite glue shrinkage found in box being split [21
 
 ]
-<images/obj_histogram_2.png, id=463, 522.753pt x 608.163pt>
+ignored: Infinite glue shrinkage found in box being split [22]
+<images/obj_histogram_2.png, id=522, 508.737pt x 612.105pt>
 File: images/obj_histogram_2.png Graphic file (type png)
 <use images/obj_histogram_2.png>
-Package pdftex.def Info: images/obj_histogram_2.png  used on input line 30.
-(pdftex.def)             Requested size: 397.3397pt x 462.25508pt.
-<images/obj_histogram_1.png, id=464, 521.877pt x 612.105pt>
+Package pdftex.def Info: images/obj_histogram_2.png  used on input line 73.
+(pdftex.def)             Requested size: 397.3397pt x 478.08443pt.
+<images/obj_histogram_1.png, id=523, 509.832pt x 612.105pt>
 File: images/obj_histogram_1.png Graphic file (type png)
 <use images/obj_histogram_1.png>
-Package pdftex.def Info: images/obj_histogram_1.png  used on input line 37.
-(pdftex.def)             Requested size: 397.3397pt x 466.03589pt.
- [22 <./images/obj_histogram_2.png>]
-Underfull \vbox (badness 6173) has occurred while \output is active []
-
- [23 <./images/obj_histogram_1.png>]
-<images/calculus_time.png, id=479, 700.581pt x 452.673pt>
+Package pdftex.def Info: images/obj_histogram_1.png  used on input line 80.
+(pdftex.def)             Requested size: 397.3397pt x 477.05704pt.
+<images/calculus_time.png, id=525, 903.375pt x 457.71pt>
 File: images/calculus_time.png Graphic file (type png)
 <use images/calculus_time.png>
-Package pdftex.def Info: images/calculus_time.png  used on input line 54.
-(pdftex.def)             Requested size: 397.3397pt x 256.74155pt.
-<images/perc_gap.png, id=481, 949.365pt x 457.71pt>
+Package pdftex.def Info: images/calculus_time.png  used on input line 97.
+(pdftex.def)             Requested size: 397.3397pt x 201.32318pt.
+ [23]
+<images/perc_gap.png, id=536, 1020.759pt x 460.557pt>
 File: images/perc_gap.png Graphic file (type png)
 <use images/perc_gap.png>
-Package pdftex.def Info: images/perc_gap.png  used on input line 67.
-(pdftex.def)             Requested size: 397.3397pt x 191.56642pt.
+Package pdftex.def Info: images/perc_gap.png  used on input line 110.
+(pdftex.def)             Requested size: 397.3397pt x 179.27216pt.
 
-Underfull \vbox (badness 6725) has occurred while \output is active []
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [24 <./images/calculus_time.png>]) (./content/chapters/chapter6.tex [25 <./images/perc_gap.png>] [26
+ [24 <./images/obj_histogram_2.png>]
+Underfull \vbox (badness 2197) has occurred while \output is active []
+
+ [25 <./images/obj_histogram_1.png>]
+Underfull \vbox (badness 1107) has occurred while \output is active []
+
+ [26 <./images/calculus_time.png> <./images/perc_gap.png>]
+<images/gantt_43.png, id=557, 1076.823pt x 426.1521pt>
+File: images/gantt_43.png Graphic file (type png)
+<use images/gantt_43.png>
+Package pdftex.def Info: images/gantt_43.png  used on input line 127.
+(pdftex.def)             Requested size: 397.3397pt x 157.24463pt.
+<images/gantt_43mip.png, id=558, 1076.823pt x 426.1521pt>
+File: images/gantt_43mip.png Graphic file (type png)
+<use images/gantt_43mip.png>
+Package pdftex.def Info: images/gantt_43mip.png  used on input line 134.
+(pdftex.def)             Requested size: 397.3397pt x 157.24463pt.
+ [27 <./images/gantt_43.png> <./images/gantt_43mip.png>]
+<images/gantt_40.png, id=567, 1076.823pt x 426.1521pt>
+File: images/gantt_40.png Graphic file (type png)
+<use images/gantt_40.png>
+Package pdftex.def Info: images/gantt_40.png  used on input line 143.
+(pdftex.def)             Requested size: 397.3397pt x 157.24463pt.
+<images/gantt_40mip.png, id=568, 1076.823pt x 426.1521pt>
+File: images/gantt_40mip.png Graphic file (type png)
+<use images/gantt_40mip.png>
+Package pdftex.def Info: images/gantt_40mip.png  used on input line 150.
+(pdftex.def)             Requested size: 397.3397pt x 157.24463pt.
+<images/gantt_45.png, id=570, 1076.5821pt x 426.1521pt>
+File: images/gantt_45.png Graphic file (type png)
+<use images/gantt_45.png>
+Package pdftex.def Info: images/gantt_45.png  used on input line 159.
+(pdftex.def)             Requested size: 397.3397pt x 157.28365pt.
+) (./content/chapters/chapter6.tex [28 <./images/gantt_40.png> <./images/gantt_40mip.png>] [29 <./images/gantt_45.png>] [30
 
 ]
 Chapter 6.
-) (./content/appendix.tex [27
+) (./content/appendix.tex [31
 
-] [28
+] [32
 
 ]
 Appendix A.
@@ -1760,24 +1793,15 @@ File: lstlang1.sty 2025/11/14 1.11b listings language file
 ) (./scripts/creation_files.py
 LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <10.95007> not available
 (Font)              Font shape `T1/lmtt/b/n' tried instead on input line 1.
- [29
+ [33
 
-]) (./scripts/main.py [30]
+]) (./scripts/main.py [34]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [31]
+ [35]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [32]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [33]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [34]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [35]) (./scripts/simulated_annealing.py [36]
+ [36]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [37]
@@ -1786,10 +1810,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
  [38]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [39]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [40]
+ [39]) (./scripts/simulated_annealing.py [40]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [41]
@@ -1798,20 +1819,25 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
  [42]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [43]) (./scripts/automation.py [44])
-\dtldb@results=\toks89
-\dtlkeys@results=\toks90
-\dtlrows@results=\count622
-\dtlcols@results=\count623
+ [43]
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-ignored: Infinite glue shrinkage found in box being split [45]
-ignored: Infinite glue shrinkage found in box being split [46]
+ [44]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [45]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [46]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [47]) (./scripts/automation.py [48])
 
 Package glossaries Warning: No \printglossary or \printglossaries found. 
 (Remove \makeglossaries if you don't want any glossaries.) 
 This document will not have a glossary.
 
-[47] (./thesis.aux)
+[49] (./thesis.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
@@ -1821,17 +1847,17 @@ L3 programming layer <2026-01-19>
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 Package rerunfilecheck Info: File `thesis.out' has not changed.
-(rerunfilecheck)             Checksum: D47FBC9E8699A2E6DB21FF1421B9768A;7039.
+(rerunfilecheck)             Checksum: 0F985EB982D268D68A9885A63B5F7EA1;7033.
 Package logreq Info: Writing requests to 'thesis.run.xml'.
 \openout1 = `thesis.run.xml'.
 
  ) ) 
 Here is how much of TeX's memory you used:
- 67787 strings out of 469006
- 1518260 string characters out of 5454813
- 3296301 words of memory out of 5000000
- 94368 multiletter control sequences out of 15000+600000
- 779663 words of font info for 268 fonts, out of 8000000 for 9000
+ 67828 strings out of 469006
+ 1519278 string characters out of 5454813
+ 3296721 words of memory out of 5000000
+ 94406 multiletter control sequences out of 15000+600000
+ 779578 words of font info for 267 fonts, out of 8000000 for 9000
  319 hyphenation exceptions out of 8191
  138i,18n,135p,2657b,2928s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
@@ -1877,10 +1903,10 @@ pdfTeX warning (dest): name{cite.0@grotschel1995combinatorial} has been referenc
 pdfTeX warning (dest): name{cite.0@SCHRIJVER20051} has been referenced but does not exist, replaced by a fixed one
 
 </usr/local/texlive/2026basic/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></usr/local/texlive/2026basic/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/local/texlive/2026basic/texmf-dist/fonts/type1/public/lm/lmcsc10.pfb></usr/local/texlive/2026basic/texmf-dist/fonts/type1/public/lm/lmex10.pfb></usr/local/texlive/2026basic/texmf-dist/fonts/type1/public/lm/lmmi12.pfb></usr/local/texlive/2026basic/texmf-dist/fonts/type1/public/lm/lmmi8.pfb></usr/local/texlive/2026basic/texmf-dist/fonts/type1/public/lm/lmmib10.pfb></usr/local/texlive/2026basic/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/local/texlive/2026basic/texmf-dist/fonts/type1/public/lm/lmr12.pfb></usr/local/texlive/2026basic/texmf-dist/fonts/type1/public/lm/lmr6.pfb></usr/local/texlive/2026basic/texmf-dist/fonts/type1/public/lm/lmr7.pfb></usr/local/texlive/2026basic/texmf-dist/fonts/type1/public/lm/lmr8.pfb></usr/local/texlive/2026basic/texmf-dist/fonts/type1/public/lm/lmri12.pfb></usr/local/texlive/2026basic/texmf-dist/fonts/type1/public/lm/lmro10.pfb></usr/local/texlive/2026basic/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/local/texlive/2026basic/texmf-dist/fonts/type1/public/lm/lmsy8.pfb></usr/local/texlive/2026basic/texmf-dist/fonts/type1/public/lm/lmtk10.pfb></usr/local/texlive/2026basic/texmf-dist/fonts/type1/public/lm/lmtt10.pfb></usr/local/texlive/2026basic/texmf-dist/fonts/type1/public/lm/lmtti10.pfb></usr/local/texlive/2026basic/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on thesis.pdf (54 pages, 3999944 bytes).
+Output written on thesis.pdf (56 pages, 6118625 bytes).
 PDF statistics:
- 1573 PDF objects out of 1728 (max. 8388607)
- 1444 compressed objects within 15 object streams
- 850 named destinations out of 1000 (max. 500000)
- 88947 words of extra memory for PDF output out of 89155 (max. 10000000)
+ 1597 PDF objects out of 1728 (max. 8388607)
+ 1460 compressed objects within 15 object streams
+ 855 named destinations out of 1000 (max. 500000)
+ 88972 words of extra memory for PDF output out of 89155 (max. 10000000)
 

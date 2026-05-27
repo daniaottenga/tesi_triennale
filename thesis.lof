@@ -6,11 +6,16 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Representation of the solution to the problem with the Gantt Chart}}{18}{figure.caption.6}%
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Representation of the solution to the problem with the Gantt Chart}}{19}{figure.caption.6}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Representation of the objective values in an histogram}}{22}{figure.caption.7}%
-\contentsline {figure}{\numberline {5.2}{\ignorespaces Representation of the objective values in an histogram}}{23}{figure.caption.8}%
-\contentsline {figure}{\numberline {5.3}{\ignorespaces Representation of the computational times in a line graph}}{24}{figure.caption.9}%
-\contentsline {figure}{\numberline {5.4}{\ignorespaces Representation of the percentage gaps in a line graph}}{25}{figure.caption.10}%
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Representation of the objective values in an histogram}}{24}{figure.caption.7}%
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Representation of the objective values in an histogram}}{25}{figure.caption.8}%
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Representation of the computational times in a line graph}}{26}{figure.caption.9}%
+\contentsline {figure}{\numberline {5.4}{\ignorespaces Representation of the percentage gaps in a line graph}}{26}{figure.caption.10}%
+\contentsline {figure}{\numberline {5.5}{\ignorespaces Gantt representation of instance 43 solved by the metaheuristic}}{27}{figure.caption.11}%
+\contentsline {figure}{\numberline {5.6}{\ignorespaces Gantt representation of instance 43 solved by the MIP solver}}{27}{figure.caption.12}%
+\contentsline {figure}{\numberline {5.7}{\ignorespaces Gantt representation of instance 40 solved by the metaheuristic}}{28}{figure.caption.13}%
+\contentsline {figure}{\numberline {5.8}{\ignorespaces Gantt representation of instance 40 solved by the MIP solver}}{28}{figure.caption.14}%
+\contentsline {figure}{\numberline {5.9}{\ignorespaces Gantt representation of instance 45 solved by the metaheuristic}}{29}{figure.caption.15}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }

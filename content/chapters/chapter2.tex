@@ -1,7 +1,7 @@
 \chapter{Introduction to Machine Scheduling}
 \label{sec:intro_proj_sch}
 
-\textbf{Machine Scheduling} aims to perform a number of jobs, each of which consists of a sequence of operations, by using a number of machines. To complete a job, each of its operations must be processed in the order given by the sequence. The processing of an operation requires a use of a particular machine for a given duration, the processing time. The objective is to find a processing order to minimize the makespan.
+\textbf{Machine Scheduling} aims to perform a number of jobs, each of which consists of a sequence of operations, by using a number of machines. To complete a job, each of its operations must be processed in the order given by the sequence. The processing of an operation requires the use of a particular machine for a given duration, the processing time. The objective is to find a processing order to minimize the makespan, the time at which the last job in the last machine is finished.
 
 A distinction can be made between sequences and schedules. A \textbf{sequence} corresponds to an ordering of the operations on each machine that allows the sequence of the operations corresponding to each job. Corresponding to each sequence there is an infinity of feasible \textbf{schedules} obtained by specifying the exact starting and finishing time of each operation. A schedule determines for each job a \textbf{completion time} in which its last operation is finished \cite{kan2012machine}.
 
@@ -9,19 +9,19 @@ A distinction can be made between sequences and schedules. A \textbf{sequence} c
 
 To classify the various types of machine scheduling problems, the three field notation introduced by \textbf{Graham} is used \cite{10.1145/3431232} \cite{weglarz2012project}:
 \begin{itemize}
-    \item $\boldsymbol{\alpha}$ for the \textbf{resources}: we can consider a single machine, parallel identical machines, or flow shop environments.
+    \item $\boldsymbol{\alpha}$ for the \textbf{resources}: we can consider a single machine, parallel identical machines or flow shop environments.
     \item $\boldsymbol{\beta}$ for the \textbf{properties of tasks}: where we can consider:
     \begin{itemize}
         \item \textbf{Preemption}: not allowed (one cannot stop the task once it has started).
         \item \textbf{Precedence}: no constraints, strict constraints (finish-start: the successor cannot start before the predecessor finishes) and generalized constraints.
         \item \textbf{Deadlines}: not assumed, imposed on activities and imposed on the project.
     \end{itemize}
-    \item $\boldsymbol{\gamma}$ for the \textbf{criterion} (the objective function) which is to minimize the makespan ($C_{\text{max}}$), or the completion time of the last job.
+    \item $\boldsymbol{\gamma}$ for the \textbf{criterion} (the objective function) which is to minimize the makespan ($C_{\text{max}}$).
 \end{itemize}
 
 \section[Flow shop scheduling]{Flow shop scheduling}
 
-\textbf{Flow Shop} is a processing system in which the task sequence of each job is fully specified (chain precedence) and all the jobs visit the work stations in the same order. In a pure flow shop each job visits all stages but more generically can have fewer tasks and can skip some stations. But it's assumed that a job visiting a $i' > i$ station cannot go back to the previous one (\textit{i}). There is also another case: the reentrant flow shop. Here jobs can recycle back and be reprocessed at the same station, or sequence of stations, multiple times.
+\textbf{Flow Shop} is a processing system in which the task sequence of each job is fully specified (chain precedence) and all the jobs visit the work stations in the same order. In a \textbf{pure flow shop} each job visits all stages but more generically can have fewer tasks and can skip some stations. But it's assumed that a job visiting a $i' > i$ station cannot go back to the previous one (\textit{i}). There is also another case: the \textbf{reentrant flow shop}. Here jobs can recycle back and be reprocessed at the same station, or sequence of stations, multiple times.
 
 There are many variations to the general flow shop like the \textbf{simple flow shop}. Here we can make these considerations: each stage can handle one operation at a time, each task of a job requires a different machine, all jobs are available simultaneously at the start and remain available until the work is finished, each job can be in one place at the time, no preemption is allowed, when a job is finished in one machine, it's immediately available for the next one so there are no delays due to setups or transfer, intermediate storage between machines is unlimited. Then there is the \textbf{general job shop}, which is described exactly like the simple flow shop but the machine sequence of different jobs may differ, and the \textbf{hybrid (compound or flexible) flow shop} where work station may consists in several functionally identical processors in parallel \cite{emmons2012flow}.
 

@@ -5,50 +5,17 @@
 
 To create the inputs values, such as the number of jobs, the number of machines and the processing time for job for machine and calculate the Big-M value, the shift length and the maximal number of shifts using the data retrieved before, a specific script was developed. The function of the script is to create 50 instances, in the folder of the project, to be then applied in the exact model and in the metaheuristic to analyze the differences in the results.
 
-The logic of data creation is explained in the \textbf{Algorithm \ref{algo:data_creation_algorithm}}\footnote{For the full source code, please refer to Appendix \ref{app:data_creation_script}.} while an example of the output file is shown in \textbf{\ref{lst:output_file}}.
+An example of the output file is shown in \textbf{Listing \ref{lst:output_file}}\footnote{For the full source code, please refer to Appendix \ref{app:data_creation_script}.}.
 
 \lstinputlisting[style=txtoutput, caption={Output of the creation file (instance\_1.txt).}, label={lst:output_file}]{scripts/instance_1.txt}
 
-\begin{algorithm}
-\caption{Data Creation Algorithm}
-\label{algo:data_creation_algorithm}
-\begin{algorithmic}[1]
+The \textbf{number of jobs} is an integer number randomly generated between 5 and 20, the \textbf{number of machines} is randomly generated between 5 and 10 and the \textbf{processing times} are randomly generated between 1 and 100. To ensure maximum flexibility and generalizability of the system, the architecture does not assume a predefined unit of measurement for the processing times in advance. The user has the autonomy to freely define the input, expressing it, for instance, in hours or seconds. The system adopts a time-scale agnostic approach, leaving the responsibility for dimensional consistency entirely to the user's discretion during the configuration phase. 
 
-    \Statex
-    \For{$k \gets 1$ \textbf{to} $50$} \Comment{Generates 50 different instances}
-        \State $n \gets \textit{RandomInteger}(5, 20)$ \Comment{Generates the number of jobs}
-        \State $m \gets \textit{RandomInteger}(5, 10)$ \Comment{Generates the number of machines}
-        \Statex
-        \State $\textit{CreateFile}(\textit{instance\_i})$
-        \State $\textit{WriteToFile}(n, m)$ \Comment{Writes dimensions on the first line}
-        \Statex
-        \State $\textit{row} \gets [$ $]$
-        \For{$i \gets 1$ \textbf{to} $m$}
-            \For{$j \gets 1$ \textbf{to} $n$}
-                \State $p_{ij} \gets \textit{RandomInteger}(1, 100)$ \Comment{Generates the processing time}
-                \State $\textit{Append}(\textit{row}, p_{ij})$
-            \EndFor
-            \State $\textit{WriteToFile}(\textit{row})$
-        \EndFor
-        \Statex
-        \State $M \gets 0$
-        \State $\textit{max\_processing\_time} \gets 0$ 
-        \Statex
-        \For{$p \in p_{ij}$}
-            \State $M \gets M + p$ \Comment{Calculates the big M}
-            \State $\textit{max\_processing\_time} \gets \max(\textit{max\_processing\_time}, p)$
-        \EndFor
-        \Statex
-        \State $T \gets \textit{max\_processing\_time} * \textit{RandomInteger}(2, 5)$ \Comment{Calculates the shift length}
-        \Statex
-        \State $S \gets \max(1, \lceil M / T \rceil$) \Comment{Calculates the maximal number of shifts}
-        \Statex
-        \State $\textit{WriteToFile}$($M$ $T$ $S$)
-        \State $\textit{CloseFile}(\textit{instance\_i})$
-        \EndFor
-    
-\end{algorithmic}
-\end{algorithm}
+The \textbf{Big-M value} is implemented as the sum of the processing times, this allows the constraints to iterate a non-excessive number of times. 
+
+The \textbf{shift length} is computed as the product of the maximum processing time genarated and a random integer between 2 and 5, this allows a non-excessive and non-poor number of jobs to be scheduled in a shift.
+
+The \textbf{number of shifts} is calculated as the maximum number between 1 ad the ceiling of the division between the big-M value and the shift length, this allows the solver to not iterate an excessive number of times.
 
 \section[MIP Implementation]{MIP Implementation}
 
@@ -62,9 +29,9 @@ The input retrieving part is the same as the previous one. To initialize the alg
 
 \subsection{Schedule Operation}
 
-\textbf{Algorithm \ref{algo:schedule_operation}} schedules a single operation respecting the shifts. First it states the earliest shift in which the job can start. If the job can be scheduled in the earliest shift it will finish also there otherwise it'll start and finish in the next shift.
+\textbf{Algorithm \ref{algo:schedule_operation}} schedules a single operation respecting the shifts. First it states the earliest shift in which the job can start. If the job can be scheduled in the earliest shift it will finish also there, otherwise it'll start and finish in the next shift.
 
-\begin{algorithm}
+\begin{algorithm}[!htbp]
 \caption{Schedule operation}
 \label{algo:schedule_operation}
 \begin{algorithmic}[1]
@@ -86,9 +53,9 @@ The input retrieving part is the same as the previous one. To initialize the alg
 
 \subsection{Compute Schedule}
 
-\textbf{Algorithm \ref{algo:compute_schedule}} computes the E matrix given a permutation list. First it selects the number of the job. If the first machine and the first job are chosen, the earliest start is at the beginning (zero). If the first machine but not the first job are chosen, the completion time of the job before in the same machine is taken. If the first job but not the first machine are chosen, the completion time of the first job of the machine before is taken. If neither the first machine or the first job are chosen, the biggest between the completion time of the job before in the same machine and of the same job in the machine before is taken. Knowing now the earliest start the operation can be scheduled.
+\textbf{Algorithm \ref{algo:compute_schedule}} computes the E matrix given a permutation list. First it selects the number of the job. If the first machine and the first job are chosen, the earliest start is at the beginning (zero). If the first machine but not the first job are chosen, the completion time of the job before in the same machine is taken. If the first job but not the first machine are chosen, the completion time of the first job of the machine before is taken. If neither the first machine or the first job are chosen, the biggest between the completion time of the job before in the same machine and of the same job in the machine before is taken. Knowing now the earliest start, the operation can be scheduled.
 
-\begin{algorithm}
+\begin{algorithm}[!htbp]
 \caption{Compute Schedule}
 \label{algo:compute_schedule}
 \begin{algorithmic}[1]
@@ -126,7 +93,7 @@ The input retrieving part is the same as the previous one. To initialize the alg
 
 \textbf{Algorithm \ref{algo:makespan}} gives the total makespan of the job shop.
 
-\begin{algorithm}
+\begin{algorithm}[!htbp]
 \caption{Makespan}
 \label{algo:makespan}
 \begin{algorithmic}[1]
@@ -145,7 +112,7 @@ The input retrieving part is the same as the previous one. To initialize the alg
 
 \textbf{Algorithm \ref{algo:swap_move}} swaps two random jobs to see if the solution is better or worse.
 
-\begin{algorithm}
+\begin{algorithm}[!htbp]
 \caption{Swap Move}
 \label{algo:swap_move}
 \begin{algorithmic}[1]
@@ -164,9 +131,9 @@ The input retrieving part is the same as the previous one. To initialize the alg
 
 \subsection{Insertion Move}
 
-\textbf{Algorithm \ref{algo:insertion_move}} inserts a job in a different position to see if the solution is better or worse
+\textbf{Algorithm \ref{algo:insertion_move}} inserts a job in a different position to see if the solution is better or worse.
 
-\begin{algorithm}
+\begin{algorithm}[!htbp]
 \caption{Insertion Move}
 \label{algo:insertion_move}
 \begin{algorithmic}[1]
@@ -188,7 +155,7 @@ The input retrieving part is the same as the previous one. To initialize the alg
 
 \textbf{Algorithm \ref{algo:get_neighbour}} takes on a 50/50 possibility the swap or the insertion move.
 
-\begin{algorithm}
+\begin{algorithm}[!htbp]
 \caption{Get Neighbour}
 \label{algo:get_neighbour}
 \begin{algorithmic}[1]
@@ -212,7 +179,7 @@ The input retrieving part is the same as the previous one. To initialize the alg
 
 \textbf{Algorithm \ref{algo:simulated_annealing}} computes the entire algorithm. The initial solution, sorted by descending values of the sum of the processing time for every job, is selected. The best actual solution is the initial solution. Then, iterating for the maximal number of iterations (100000), it creates a neighbour to the solution (using swapping or insert) and calculates the cost difference between the actual and the neighbour cost. If the neighbour is better it is always accepted, else it is accepted with probability $e^{-\Delta/T}$ where $\Delta$ is the difference between the neighbour and the current cost. If the current solution is better than the best solution, it is updated. Then geometric cooling is implemented: if the temperature is too low the iteration is stopped.
 
-\begin{algorithm}
+\begin{algorithm}[!htbp]
 \caption{Simulated annealing}
 \label{algo:simulated_annealing}
 \begin{algorithmic}[1]
@@ -271,47 +238,3 @@ In \textbf{Figure \ref{fig:gantt_chart}} is presented a simple example.
 \section[Automation of the Implementation]{Automation of the Implementation}
 
 To implement all of the fifty instances, an automation script was created. The aim is to give the current index to the MIP solver and the metaheuristic, then they will find the related instance created and solve the problem. The results will be saved in a gantt chart format and in a CSV\footnote{For the full source code, please refer to Appendix \ref{app:automation_script}.}.
-
-\begin{algorithm}
-\caption{Automation}
-\label{algo:automation}
-\begin{algorithmic}[1]
-
-    \Statex
-    \State $\textit{CreateFile}(\textit{results.csv})$
-    \Statex
-    \For{$i \gets 1$ \textbf{to} $50$}
-        \State $\textit{solution, } lb \textit{, time1} \gets \textit{mip\_solver}(i)$
-        \State $\textit{metaheuristic, } \textit{time2} \gets \textit{simulated\_annealing}(i)$
-        \Statex
-        \If{$\textit{time1} \ge 300$}
-            \State $\textit{time1} \gets \text{"300*"}$
-        \Else
-            \State $\textit{time1} \gets \textit{round time1 to 4 decimal places}$
-        \EndIf
-        \Statex
-        \If{$\textit{solution is not None}$}
-            \State $\textit{vs\_best} \gets (\textit{methaeuristic} - \textit{solution}) / \textit{solution} * 100$
-            \State $\textit{solution} \gets \textit{Integer}(\textit{solution})$
-            \State $\textit{vs\_best} \gets \textit{round vs\_best to 2 decimal places}$
-        \Else
-            \State $\textit{vs\_best} \gets -$
-            \State $\textit{solution} \gets -$
-        \EndIf
-        \Statex
-        \If $\textit{lb is not None}$
-            \State $\textit{vs\_lb} \gets (\textit{methaeuristic} - \textit{lb}) / \textit{lb} * 100$
-            \State $\textit{vs\_lb} \gets \textit{round vs\_lb to 2 decimal places}$
-        \Else
-            \State $\textit{vs\_lb} \gets -$
-        \EndIf
-        \Statex
-        \State $\textit{time2} \gets \textit{round time2 to 4 decimal places}$
-        \State $\textit{lb} \gets \textit{Integer}(\textit{lb})$
-        \Statex
-        \State $\textit{WriteToFile}$($i$, $lb$, \textit{solution}, \textit{time1}, \textit{metaheristic}, \textit{time2}, \textit{vs\_best}, \textit{vs\_lb})
-    \EndFor
-
-
-\end{algorithmic}
-\end{algorithm}
