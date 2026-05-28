@@ -1,7 +1,6 @@
 % !TEX root = thesis.tex
 % !TEX program = pdflatex
-% !TEX bibprogram = bibtex
-% !BIB TS-program = biber
+% !TEX bibprogram = biber
 
 % se la bibliografia non va: pdflatex thesis, biber thesis, pdflatex thesis
 
@@ -123,6 +122,8 @@
 
 \phantom{0}
 \cleardoublepage
-\printbibliography[heading=bibintoc]
+
+\nocite{*}
+\printbibliography
 
 \end{document}

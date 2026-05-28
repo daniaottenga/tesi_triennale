@@ -2386,6 +2386,7 @@
     <bcf:citekey order="11" intorder="1">OLAFSSON2006633</bcf:citekey>
     <bcf:citekey order="12" intorder="1">bertsimas1993simulated</bcf:citekey>
     <bcf:citekey order="13" intorder="1">van1987simulated</bcf:citekey>
+    <bcf:citekey order="14" intorder="1" nocite="1">*</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="none">
@@ -2397,4 +2398,14 @@
     </bcf:sort>
   </bcf:sortingtemplate>
   <!-- DATALISTS -->
+  <bcf:datalist section="0"
+                name="none/global//global/global/global"
+                type="entry"
+                sortingtemplatename="none"
+                sortingnamekeytemplatename="global"
+                labelprefix=""
+                uniquenametemplatename="global"
+                labelalphanametemplatename="global"
+                namehashtemplatename="global">
+  </bcf:datalist>
 </bcf:controlfile>
