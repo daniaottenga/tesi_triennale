@@ -1,2 +1,20 @@
 \chapter{Conclusions}
 \label{sec:intro_concl}
+
+\section[Summary of the results and supremacy of the metaheuristic]{Summary of the results and supremacy of the metaheuristic}
+
+As discussed in the previous chapter, the metaheuristic has surpassed the exact algorithm. In 74\% of the instances the MIP solver reached the timer limit and 42\% of the times failed to find a feasible solution whereas 100\% of the time the metaheuristic could give a near optimal solution in just a few seconds. These results demonstrate that while exact solvers remain essential for finding theoretical lower bounds, they are highly impractical for more complex scenarios. Therefore, metaheuristics offer an optimal trade-off between computational time and solution quality for NP-hard problems.
+
+\section[Limits of the exact method]{Limits of the exact method}
+
+Due to the factorial or exponential growth of the search space, increasing the time limit of the MIP solver yields diminishing returns. It would require an impractical amount of time to find the best solution and it may also be little better than the one the metaheuristic gives. The situation could be more manageable using fewer jobs and machines or less variable processing times. 
+
+\section[Maintenance and industrial reality]{Maintenance and industrial reality}
+
+Scheduling maintenance during idle times preserves company productivity without interrupting active processing phases. It means lengthening the useful life of the machines, keeping them in optimal condition and preventing unexpected breakdowns that would block the line. To make the model more applicable in real life, some enhancements could be made like considering the logistical times to move the semi-finished products between machines, the setup times of the machines or even the failure times (that even with great maintenance could happen). This could make the model a "Digital Twin" of the production scheduling.
+
+\section[Decisional and sectorial flexibility]{Decisional and sectorial flexibility}
+
+In \textbf{Figures \ref{fig:instance_40} and \ref{fig:instance_40mip}} it was pointed out how the same optimal solution could have different configurations regarding the starting or ending time of each production phase of each job or even the order of the jobs on the machines. This is a managerial advantage for the production manager that can choose the solution also based on secondary criteria without sacrificing the performance. Furthermore, the model has a timescale-agnostic approach that makes the algorithm flexible. It could be applied indifferently in high-frequency sectors, where times are measured in seconds, or in heavy industry, where one phase could span days or weeks.
+
+In conclusion, this thesis demonstrate how developed models, like MIP solvers or the metaheuristics, can autonomously schedule (even in a few seconds) an entire production, solving modern manufacturing challenges and making the production systems more efficient and customizable through efficient code implementations. 

@@ -40,6 +40,10 @@
 \contentsline {section}{\numberline {5.3}\% Gap Analysis}{25}{section.5.3}%
 \contentsline {section}{\numberline {5.4}Gantt Charts Analysis}{27}{section.5.4}%
 \contentsline {chapter}{\numberline {6}Conclusions}{31}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Summary of the results and supremacy of the metaheuristic}{31}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Limits of the exact method}{31}{section.6.2}%
+\contentsline {section}{\numberline {6.3}Maintenance and industrial reality}{31}{section.6.3}%
+\contentsline {section}{\numberline {6.4}Decisional and sectorial flexibility}{32}{section.6.4}%
 \contentsline {chapter}{\numberline {A}Scripts}{33}{appendix.A}%
 \contentsline {section}{\numberline {A.1}Data Generation Script}{33}{section.A.1}%
 \contentsline {section}{\numberline {A.2}MIP implementation Script}{34}{section.A.2}%
