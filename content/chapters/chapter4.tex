@@ -1,33 +1,32 @@
 \chapter{Procedures}
 \label{sec:intro_proc}
 
-\section[Data Management and Input]{Data Management and Input}
+\section[Data management and input]{Data management and input}
 
-To create the inputs values, such as the number of jobs, the number of machines and the processing time for job for machine and calculate the Big-M value, the shift length and the maximal number of shifts using the data retrieved before, a specific script was developed. The function of the script is to create 50 instances, in the folder of the project, to be then applied in the exact model and in the metaheuristic to analyze the differences in the results.
+To create the input values, such as the number of jobs, the number of machines and the processing time for job for machine, and calculate the Big-M value, the shift length and the maximal number of shifts using the data retrieved before, a specific script was developed. The function of the script is to create 50 instances, in the folder of the project, to be then applied in the exact model and in the metaheuristic to analyze the differences in the results.
 
 An example of the output file is shown in \textbf{Listing \ref{lst:output_file}}\footnote{For the full source code, please refer to Appendix \ref{app:data_creation_script}.}.
 
 \lstinputlisting[style=txtoutput, caption={Output of the creation file (instance\_1.txt).}, label={lst:output_file}]{scripts/instance_1.txt}
 
-The \textbf{number of jobs} is an integer number randomly generated between 5 and 20, the \textbf{number of machines} is randomly generated between 5 and 10 and the \textbf{processing times} are randomly generated between 1 and 100. To ensure maximum flexibility and generalizability of the system, the architecture does not assume a predefined unit of measurement for the processing times in advance. The user has the autonomy to freely define the input, expressing it, for instance, in hours or seconds. The system adopts a time-scale agnostic approach, leaving the responsibility for dimensional consistency entirely to the user's discretion during the configuration phase. 
+The \textbf{number of jobs} is an integer number randomly generated between 5 and 20 and the \textbf{number of machines} is randomly generated between 5 and 10. These two numbers are shown in the first line of the output in this order.  The \textbf{processing times} are randomly generated between 1 and 100. In the output, each line following the first one and excluding the last one represents a machine and each position in the line represents the position of the job. So, for example, the number on the second line on the first position represents the processing time of the first job in the first machine. 
 
-The \textbf{Big-M value} is implemented as the sum of the processing times, this allows the constraints to iterate a non-excessive number of times. 
+To ensure maximum flexibility and generalizability of the system, the architecture does not assume a predefined unit of measurement for the processing times in advance. The user has the autonomy to freely define the input, expressing it, for instance, in hours or seconds. The system adopts a time-scale agnostic approach, leaving the responsibility for dimensional consistency entirely to the user's discretion during the configuration phase. 
 
-The \textbf{shift length} is computed as the product of the maximum processing time genarated and a random integer between 2 and 5, this allows a non-excessive and non-poor number of jobs to be scheduled in a shift.
+The \textbf{Big-M value} is implemented as the sum of the processing times, this allows the constraints to iterate a non-excessive number of times. The \textbf{shift length} is computed as the product of the maximum processing time generated and a random integer between 2 and 5, this allows a non-excessive and non-poor number of jobs to be scheduled in a shift. The \textbf{maximal number of shifts} is calculated as the maximum number between 1 ad the ceiling of the division between the big-M value and the shift length, this allows the solver to not iterate an excessive number of times. These three numbers are shown in the last line of the output in this order.
 
-The \textbf{number of shifts} is calculated as the maximum number between 1 ad the ceiling of the division between the big-M value and the shift length, this allows the solver to not iterate an excessive number of times.
+\section[MIP implementation]{MIP implementation}
 
-\section[MIP Implementation]{MIP Implementation}
+The optimal solution will be calculated using the python programming language, in particular the \textbf{Python-MIP package}. Python-MIP is a collection of Python tools for the modeling and solution of Mixed-Integer Linear programs (MIPs).
 
-The optimal solution will be calculated using the python programming language, in particular the Python-MIP package. \textbf{Python-MIP} is a collection of Python tools for the modeling and solution of Mixed-Integer Linear programs (MIPs).
+First the values created before are retrieved, then the variables, the objective function and the constraints will be generated, in the same way as they were discussed in the third chapter. Then the model can optimize the function and provide a value. A timer is set on 300 seconds, if the computation exceeds the timer there are two possibilities: a feasible solution is found or no solution is found\footnote{For the full source code, please refer to Appendix \ref{app:mip_implementation_script}.}. 
 
-First the values created before are retrieved, then the variables, the objective function and the constraints will be generated, in the same way as they were discussed in the third chapter. Then the model can optimize the function and provide a value. A timer is set on 300 seconds. If the computation exceeds the timer set, there are two possibilities: a feasible solution is found or no solution is found\footnote{For the full source code, please refer to Appendix \ref{app:mip_implementation_script}.}. 
-
-\section[Metaheuristic Implementation]{Metaheuristic Implementation}
+\section[Metaheuristic implementation]{Metaheuristic implementation}
 
 The input retrieving part is the same as the previous one. To initialize the algorithm the \textbf{starting temperature} is valued at 1000, the \textbf{cooling rate} at 0.9998 and the \textbf{maximum number of iterations} at 100000. The functions of the method are defined as follows\footnote{For the full source code, please refer to Appendix \ref{app:simulated_annealing_script}.}.
 
-\subsection{Schedule Operation}
+\newpage
+\subsection{Schedule operation}
 
 \textbf{Algorithm \ref{algo:schedule_operation}} schedules a single operation respecting the shifts. First it states the earliest shift in which the job can start. If the job can be scheduled in the earliest shift it will finish also there, otherwise it'll start and finish in the next shift.
 
@@ -51,12 +50,12 @@ The input retrieving part is the same as the previous one. To initialize the alg
 \end{algorithmic}
 \end{algorithm}
 
-\subsection{Compute Schedule}
+\subsection{Compute schedule}
 
-\textbf{Algorithm \ref{algo:compute_schedule}} computes the E matrix given a permutation list. First it selects the number of the job. If the first machine and the first job are chosen, the earliest start is at the beginning (zero). If the first machine but not the first job are chosen, the completion time of the job before in the same machine is taken. If the first job but not the first machine are chosen, the completion time of the first job of the machine before is taken. If neither the first machine or the first job are chosen, the biggest between the completion time of the job before in the same machine and of the same job in the machine before is taken. Knowing now the earliest start, the operation can be scheduled.
+\textbf{Algorithm \ref{algo:compute_schedule}} computes the E matrix given a permutation list. First it selects the number of the job. If the first machine and the first job are chosen, the earliest start is at the beginning (zero). If the first machine but not the first job are chosen, the completion time of the job before in the same machine is taken. If the first job but not the first machine are chosen, the completion time of the first job in the machine before is taken. If neither the first machine or the first job are chosen, the biggest between the completion time of the job before in the same machine and of the same job in the machine before is taken. Knowing now the earliest start, the operation can be scheduled.
 
-\begin{algorithm}[!htbp]
-\caption{Compute Schedule}
+\begin{algorithm}[H]
+\caption{Compute schedule}
 \label{algo:compute_schedule}
 \begin{algorithmic}[1]
 
@@ -93,7 +92,7 @@ The input retrieving part is the same as the previous one. To initialize the alg
 
 \textbf{Algorithm \ref{algo:makespan}} gives the total makespan of the job shop.
 
-\begin{algorithm}[!htbp]
+\begin{algorithm}[H]
 \caption{Makespan}
 \label{algo:makespan}
 \begin{algorithmic}[1]
@@ -108,33 +107,38 @@ The input retrieving part is the same as the previous one. To initialize the alg
 \end{algorithmic}
 \end{algorithm}
 
-\subsection{Swap Move}
+\newpage
+\subsection{Swap move}
 
 \textbf{Algorithm \ref{algo:swap_move}} swaps two random jobs to see if the solution is better or worse.
 
 \begin{algorithm}[!htbp]
-\caption{Swap Move}
+\caption{Swap move}
 \label{algo:swap_move}
 \begin{algorithmic}[1]
 
     \Statex
     \Function{SwapMove}{$\textit{permutation\_list}$}
         \Statex
-        \State Select two random indexes $i, j \in \{1, \dots, |\textit{permutation\_list}|\}$      
-        \State $\textit{permutation\_list}[i] \gets \textit{permutation\_list}[j]$
-        \State $\textit{permutation\_list}[j] \gets \textit{permutation\_list}[i]$
+        \State Select two random indexes $i, j \in \{1, \dots, |\textit{permutation\_list}|\}$
+        \Statex
+        \State $\textit{elem1} \gets \textit{permutation\_list}[i]$
+        \State $\textit{elem2} \gets \textit{permutation\_list}[j]$
+        \Statex
+        \State $\textit{permutation\_list}[j] \gets \textit{elem1}$
+        \State $\textit{permutation\_list}[i] \gets \textit{elem2}$
         \State \Return \textit{permutation\_list}
     \EndFunction
 
 \end{algorithmic}
 \end{algorithm}
 
-\subsection{Insertion Move}
+\subsection{Insertion move}
 
 \textbf{Algorithm \ref{algo:insertion_move}} inserts a job in a different position to see if the solution is better or worse.
 
-\begin{algorithm}[!htbp]
-\caption{Insertion Move}
+\begin{algorithm}[H]
+\caption{Insertion move}
 \label{algo:insertion_move}
 \begin{algorithmic}[1]
 
@@ -151,12 +155,13 @@ The input retrieving part is the same as the previous one. To initialize the alg
 \end{algorithmic}
 \end{algorithm}
 
-\subsection{Get Neighbour}
+\newpage
+\subsection{Get neighbour}
 
 \textbf{Algorithm \ref{algo:get_neighbour}} takes on a 50/50 possibility the swap or the insertion move.
 
-\begin{algorithm}[!htbp]
-\caption{Get Neighbour}
+\begin{algorithm}[H]
+\caption{Get neighbour}
 \label{algo:get_neighbour}
 \begin{algorithmic}[1]
 
@@ -175,11 +180,11 @@ The input retrieving part is the same as the previous one. To initialize the alg
 \end{algorithmic}
 \end{algorithm}
 
-\subsection{Simulated Annealing}
+\subsection{Simulated annealing}
 
 \textbf{Algorithm \ref{algo:simulated_annealing}} computes the entire algorithm. The initial solution, sorted by descending values of the sum of the processing time for every job, is selected. The best actual solution is the initial solution. Then, iterating for the maximal number of iterations (100000), it creates a neighbour to the solution (using swapping or insert) and calculates the cost difference between the actual and the neighbour cost. If the neighbour is better it is always accepted, else it is accepted with probability $e^{-\Delta/T}$ where $\Delta$ is the difference between the neighbour and the current cost. If the current solution is better than the best solution, it is updated. Then geometric cooling is implemented: if the temperature is too low the iteration is stopped.
-
-\begin{algorithm}[!htbp]
+\newpage
+\begin{algorithm}[H]
 \caption{Simulated annealing}
 \label{algo:simulated_annealing}
 \begin{algorithmic}[1]
@@ -188,7 +193,7 @@ The input retrieving part is the same as the previous one. To initialize the alg
     \Function{SimulatedAnnealing}{$\textit{temperature}, \alpha, \textit{max\_iterations}$}
         \Statex
         \State $\textit{current\_list} \gets \text{jobs } \{1, \dots, n\} \text{ sorted in descending order of } \sum_{i=1}^{m} p_{ij}$
-        \State $\textit{current\_cost} \gets\text{\textsc{Makespan}}(\textit{permutation\_list})$
+        \State $\textit{current\_cost} \gets\text{\textsc{Makespan}}(\textit{current\_list})$
         \Statex
         \State $\textit{best\_list} \gets \textit{current\_list}$
         \State $\textit{best\_cost} \gets \textit{current\_cost}$
@@ -199,7 +204,7 @@ The input retrieving part is the same as the previous one. To initialize the alg
             \State $\textit{neighbour\_cost} \gets {\textsc{Makespan}}(\textit{neighbour\_list})$
             \State $\Delta \gets \textit{neighbour\_cost} - \textit{current\_cost}$
             \Statex
-            \If{$\Delta \ge 0 \textbf{ or } \textit{RandomNumber} < e^{-\Delta/T}$}
+            \If{$\Delta \le 0 \textbf{ or } \textit{RandomNumber} < e^{-\Delta/T}$}
                 \State $\textit{current\_list} \gets \textit{neighbour\_list}$
                 \State $\textit{current\_cost} \gets \textit{neighbour\_cost}$
             \EndIf
@@ -221,8 +226,8 @@ The input retrieving part is the same as the previous one. To initialize the alg
 \end{algorithmic}
 \end{algorithm}
 
-
-\section[Results Visualization: The Gantt Chart Generator]{Results Visualization: The Gantt Chart Generator}
+\newpage
+\section[Results visualization: the gantt chart generator]{Results visualization: the gantt chart generator}
 
 For the visualization of the results it was used the python library ``matplotlib'' to generate a \textbf{Gantt Chart}. On the $x$-axis the time is displayed and on the $y$-axis the machines are shown. The planning starts from the first machine on top and proceeds downwards to the last. Every job is indicated with the $j_n$ notation and has a specific color to distinguish from the others. The idle times are yellow colored with oblique lines and the text ``maintenance''.
 
@@ -235,6 +240,6 @@ In \textbf{Figure \ref{fig:gantt_chart}} is presented a simple example.
     \label{fig:gantt_chart}
 \end{figure}
 
-\section[Automation of the Implementation]{Automation of the Implementation}
+\section[Automation of the implementation]{Automation of the implementation}
 
 To implement all of the fifty instances, an automation script was created. The aim is to give the current index to the MIP solver and the metaheuristic, then they will find the related instance created and solve the problem. The results will be saved in a gantt chart format and in a CSV\footnote{For the full source code, please refer to Appendix \ref{app:automation_script}.}.

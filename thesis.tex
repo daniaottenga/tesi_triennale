@@ -51,10 +51,10 @@
 % either a blank page or a back is needed to have double-sided printing
 % pay attention to leave the space for the page
 
-%\paginavuota % clears a page
-
 \frontmatter % not strictly needed, as toptesi takes care of it already
 
+%DA AGGIUNGERE PER STAMPA
+% paginavuota
 % abstract if needed
 % \begin{abstract}
 %     \input{content/abstract.tex}
@@ -67,7 +67,6 @@
 %\cleardoublepage
 %\thispagestyle{empty} % to have empty page, without numbers
 % 2) or
-\paginavuota % to manually create a blank page
 
 % summary (uncomment until "end summary" if needed)
 %\sommario
@@ -78,14 +77,12 @@
 %\thispagestyle{empty}
 % end summary
 
-\ringraziamenti % acknowledgements
-\input{content/acknowledgements}
+%\ringraziamenti % acknowledgements
+%\input{content/acknowledgements}
+
+\paginavuota
 
 \tableofcontents
-
-\listoftables % ToC for tables
-
-\listoffigures % ToC for figures
 
 % actually abbreviation is the name used for acronym in glossaries-extra
 % title sets the name
@@ -118,10 +115,18 @@
 \appendix
 \input{content/appendix}
 
-% endnotes here if needed
+\clearpage
+\mbox{}
+\thispagestyle{plain} % Mantiene solo il numero di pagina, toglie le testatine in alto
+\clearpage
 
-\phantom{0}
-\cleardoublepage
+\begingroup
+  \renewcommand{\cleardoublepage}{\clearpage} % Forza LaTeX a non saltare pagine a destra
+  \listoftables
+  \listoffigures
+\endgroup
+
+% endnotes here if needed
 
 \nocite{*}
 \printbibliography

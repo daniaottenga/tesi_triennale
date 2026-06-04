@@ -28,7 +28,7 @@ All the results are shown in the \textbf{Table \ref{tab:results_comparison_lb}}.
 
 \begin{longtable}{l c c c c c c c}
 
-    \caption{Computational results: Exact Algorithm vs. Metaheuristic.} \label{tab:results_comparison_lb} \\
+    \caption{Computational results: exact algorithm vs. metaheuristic.} \label{tab:results_comparison_lb} \\
     
     \toprule
     & \multicolumn{3}{c}{\textbf{Exact Alg. (MIP)}} & \multicolumn{2}{c}{\textbf{Metaheuristic}} & \multicolumn{2}{c}{\textbf{Gaps (\%)}} \\
@@ -68,27 +68,29 @@ All the results are shown in the \textbf{Table \ref{tab:results_comparison_lb}}.
 
 \textbf{Histogram \ref{fig:obj_histogram_2}} and \textbf{Histogram \ref{fig:obj_histogram_1}} show the results sorted by ascending values of the number of the jobs and of the machines. Here is observed how the objective value of the MIP implementation in the lower valued instances is equal to the metaheuristic value and the lower bound. These are the cases where the 300 seconds timer doesn't run out. As the number of jobs and machines increases, the MIP solver starts to reach the timer more frequently. So the solutions are found more rarely and, if found, are very far from the LB and the metaheuristic ones.
 
-\begin{figure}
-    \centering
-    \includegraphics[width=0.95\textwidth]{images/obj_histogram_2.png}
-    \caption{Representation of the objective values in an histogram}
-    \label{fig:obj_histogram_2}
-\end{figure}
-
-\begin{figure}
-    \centering
-    \includegraphics[width=0.95\textwidth]{images/obj_histogram_1.png}
-    \caption{Representation of the objective values in an histogram}
-    \label{fig:obj_histogram_1}
-\end{figure}
-
 The results show that the exact algorithm frequently reaches the maximum time, set on 300 seconds (exactly \textbf{74\%} of the times). That means that it gets lost analyzing all the branches of the search tree, sometimes not even finding a feasible solution. Indeed \textbf{42\%} of the times it doesn't find a solution and \textbf{34\%} of the times it finds a feasible solution. Instead the metaheuristic reaches the solution with a \textbf{100\%} success rate within few seconds.
 
 Furthermore, when the MIP algorithm finds the best solution (within the 300 seconds, the \textbf{24\%} of the times) the objective value is always the same as the metaheuristic one implements.
 
 The LB value moreover is always equal or less than the optimal solution and the metaheuristic solution. But the LB is just a minimal theoretical value that the function could reach if it was given more time. It is not the actual optimal solution. That's why the metaheuristic could have actually given the optimal solution without knowing it.
 
-\section[Computational Time Analysis]{Computational Time Analysis}
+\newpage
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\textwidth]{images/obj_histogram_2.png}
+    \caption{Representation of the objective values in an histogram}
+    \label{fig:obj_histogram_2}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\textwidth]{images/obj_histogram_1.png}
+    \caption{Representation of the objective values in an histogram}
+    \label{fig:obj_histogram_1}
+\end{figure}
+
+\newpage
+\section[Computational time analysis]{Computational time analysis}
 
 \textbf{Line graph \ref{fig:calculus_time}} shows an analysis on the computational time reached by the MIP solver and the metaheuristic.
 
@@ -101,7 +103,7 @@ The LB value moreover is always equal or less than the optimal solution and the 
 
 It is clearly visible that, as the number of jobs ad of machines grows, the metaheuristic has a very small variation of the time spent while the MIP solver reaches the 300 seconds very rapidly.
 
-\section[\% Gap Analysis]{\% Gap Analysis}
+\section[\% gap analysis]{\% gap analysis}
 
 \textbf{Line graph \ref{fig:perc_gap}} shows an analysis on the percentage gaps between the Obj. and the Best Obj. and between the LB and the Obj.
 
@@ -112,14 +114,24 @@ It is clearly visible that, as the number of jobs ad of machines grows, the meta
     \label{fig:perc_gap}
 \end{figure}
 
-In the points where the lines coincide on the zero the MIP solver has reached the optimum in the 300 seconds timer. While where the "vs Best" reaches the zero value but the "vs LB" doesn't, represent the instances in which the MIP solver couldn't find a feasible solution.
+In the points where the lines coincide on the zero the MIP solver has reached the optimum in the 300 seconds timer. While where the ``vs Best'' reaches the zero value but the ``vs LB'' doesn't, represent the instances in which the MIP solver couldn't find a feasible solution.
 
-The "vs LB" indicates that the percentage is always positive while the "vs Best" is always negative. That means that the LB value is always better or equals to the Obj. value of the metaheuristic while the Best Obj. value of the MIP solver is always equal or worse to the Obj. value of the metaheuristic.
+The ``vs LB'' indicates that the percentage is always positive while the ``vs Best'' is always negative. That means that the LB value is always better or equals to the Obj. value of the metaheuristic while the Best Obj. value of the MIP solver is always equal or worse to the Obj. value of the metaheuristic.
 
-\section[Gantt Charts Analysis]{Gantt Charts Analysis}
+\section[Gantt charts analysis]{Gantt charts analysis}
 
 In this section some gantt charts will be compared to show visually the differences pointed out before.
 
+In \textbf{Figure \ref{fig:instance_45}} is shown one of the most complex instances (19 jobs and 10 machines). No solution was found in the MIP solver in the timer set and the reason is clearly visible from the density and complexity of the solution given by the metaheuristic.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.95\textwidth]{images/gantt_45.png}
+    \caption{Gantt representation of instance 45 solved by the metaheuristic}
+    \label{fig:instance_45}
+\end{figure}
+
+\newpage
 In \textbf{Figures \ref{fig:instance_43} and \ref{fig:instance_43mip}} are shown the charts of an instance with exactly 16 jobs and 5 machines (instance 43). We can see clearly how the MIP solver, when the timer went off, was still trying to analyze all the branches, even the worst ones (like the one given as feasable solution). The difference between the two makespans is the most significant between all the instances.
 
 \begin{figure}
@@ -136,7 +148,8 @@ In \textbf{Figures \ref{fig:instance_43} and \ref{fig:instance_43mip}} are shown
     \label{fig:instance_43mip}
 \end{figure}
 
-In \textbf{Figures \ref{fig:instance_40} and \ref{fig:instance_40mip}} are shown the charts of an instance simple enough to let the MIP solver find a solution. The makespan of the metaheuristic and of the exact solver are the same but the positions of the jobs are not. This means that there isn't only one optimal solution or a single optimal job order. Here in particular, four of the seven jobs have different order, but the makespan is in both solutions optimal.
+\newpage
+In \textbf{Figures \ref{fig:instance_40} and \ref{fig:instance_40mip}} are shown the charts of an instance simple enough to let the MIP solver find a solution. The makespan of the metaheuristic and of the exact solver is the same but the positions of the jobs are not. This means that there isn't only one optimal solution or a single optimal job order. Here in particular four of the seven jobs have different order but the makespan is in both solutions optimal.
 
 \begin{figure}
     \centering
@@ -152,11 +165,4 @@ In \textbf{Figures \ref{fig:instance_40} and \ref{fig:instance_40mip}} are shown
     \label{fig:instance_40mip}
 \end{figure}
 
-In \textbf{Figure \ref{fig:instance_45}} is shown one of the most complex instances (19 jobs and 10 machines). No solution was found in the MIP solver in the timer set, and the reason is clearly visible from the density and complecity of the solution given by the metaheuristic.
 
-\begin{figure}
-    \centering
-    \includegraphics[width=0.95\textwidth]{images/gantt_45.png}
-    \caption{Gantt representation of instance 45 solved by the metaheuristic}
-    \label{fig:instance_45}
-\end{figure}

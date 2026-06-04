@@ -2,50 +2,46 @@
 \babel@toc {italian}{}\relax 
 \babel@toc {italian}{}\relax 
 \babel@toc {english}{}\relax 
-\contentsline {chapter}{List of Tables}{vi}{section*.1}%
-\contentsline {chapter}{List of Figures}{vii}{section*.2}%
 \contentsline {chapter}{\numberline {1}Introduction to combinatorial optimization}{1}{chapter.1}%
 \contentsline {section}{\numberline {1.1}Historical roots}{1}{section.1.1}%
 \contentsline {section}{\numberline {1.2}Families of problems}{2}{section.1.2}%
-\contentsline {section}{\numberline {1.3}Complexity and Solving Strategies}{2}{section.1.3}%
-\contentsline {subsection}{\numberline {1.3.1}NP-hard Problems}{2}{subsection.1.3.1}%
-\contentsline {subsection}{\numberline {1.3.2}Heuristics and Metaheuristics}{2}{subsection.1.3.2}%
-\contentsline {chapter}{\numberline {2}Introduction to Machine Scheduling}{5}{chapter.2}%
+\contentsline {section}{\numberline {1.3}Complexity and solving strategies}{2}{section.1.3}%
+\contentsline {chapter}{\numberline {2}Introduction to machine scheduling}{5}{chapter.2}%
 \contentsline {section}{\numberline {2.1}Problem classification}{5}{section.2.1}%
 \contentsline {section}{\numberline {2.2}Flow shop scheduling}{6}{section.2.2}%
-\contentsline {section}{\numberline {2.3}Permutation Flow Shop (PFSSP)}{6}{section.2.3}%
+\contentsline {section}{\numberline {2.3}Permutation flow shop scheduling problems (PFSSP)}{6}{section.2.3}%
 \contentsline {chapter}{\numberline {3}Problem identification}{7}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Mathematical Notation: Parameters, Indexes and Variables}{7}{section.3.1}%
-\contentsline {section}{\numberline {3.2}Constraints and objective function}{7}{section.3.2}%
-\contentsline {paragraph}{Objective function}{7}{section*.3}%
-\contentsline {paragraph}{Costraints}{8}{section*.4}%
-\contentsline {section}{\numberline {3.3}Modeling Maintenance in Idle Times}{9}{section.3.3}%
-\contentsline {section}{\numberline {3.4}The Proposed Metaheuristic}{9}{section.3.4}%
+\contentsline {section}{\numberline {3.1}Mathematical notation: parameters, indexes and variables}{7}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Constraints and objective function}{8}{section.3.2}%
+\contentsline {paragraph}{Objective function}{8}{section*.2}%
+\contentsline {paragraph}{Costraints}{8}{section*.3}%
+\contentsline {section}{\numberline {3.3}The proposed metaheuristic}{9}{section.3.3}%
 \contentsline {chapter}{\numberline {4}Procedures}{11}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Data Management and Input}{11}{section.4.1}%
-\contentsline {section}{\numberline {4.2}MIP Implementation}{12}{section.4.2}%
-\contentsline {section}{\numberline {4.3}Metaheuristic Implementation}{12}{section.4.3}%
-\contentsline {subsection}{\numberline {4.3.1}Schedule Operation}{12}{subsection.4.3.1}%
-\contentsline {subsection}{\numberline {4.3.2}Compute Schedule}{14}{subsection.4.3.2}%
+\contentsline {section}{\numberline {4.1}Data management and input}{11}{section.4.1}%
+\contentsline {section}{\numberline {4.2}MIP implementation}{12}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Metaheuristic implementation}{12}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}Schedule operation}{13}{subsection.4.3.1}%
+\contentsline {subsection}{\numberline {4.3.2}Compute schedule}{13}{subsection.4.3.2}%
 \contentsline {subsection}{\numberline {4.3.3}Makespan}{14}{subsection.4.3.3}%
-\contentsline {subsection}{\numberline {4.3.4}Swap Move}{16}{subsection.4.3.4}%
-\contentsline {subsection}{\numberline {4.3.5}Insertion Move}{16}{subsection.4.3.5}%
-\contentsline {subsection}{\numberline {4.3.6}Get Neighbour}{16}{subsection.4.3.6}%
-\contentsline {subsection}{\numberline {4.3.7}Simulated Annealing}{16}{subsection.4.3.7}%
-\contentsline {section}{\numberline {4.4}Results Visualization: The Gantt Chart Generator}{19}{section.4.4}%
-\contentsline {section}{\numberline {4.5}Automation of the Implementation}{19}{section.4.5}%
-\contentsline {chapter}{\numberline {5}Results}{21}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Analysis of the obj. values}{23}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Computational Time Analysis}{23}{section.5.2}%
-\contentsline {section}{\numberline {5.3}\% Gap Analysis}{25}{section.5.3}%
-\contentsline {section}{\numberline {5.4}Gantt Charts Analysis}{27}{section.5.4}%
-\contentsline {chapter}{\numberline {6}Conclusions}{31}{chapter.6}%
-\contentsline {section}{\numberline {6.1}Summary of the results and supremacy of the metaheuristic}{31}{section.6.1}%
-\contentsline {section}{\numberline {6.2}Limits of the exact method}{31}{section.6.2}%
-\contentsline {section}{\numberline {6.3}Maintenance and industrial reality}{31}{section.6.3}%
-\contentsline {section}{\numberline {6.4}Decisional and sectorial flexibility}{32}{section.6.4}%
-\contentsline {chapter}{\numberline {A}Scripts}{33}{appendix.A}%
-\contentsline {section}{\numberline {A.1}Data Generation Script}{33}{section.A.1}%
-\contentsline {section}{\numberline {A.2}MIP implementation Script}{34}{section.A.2}%
-\contentsline {section}{\numberline {A.3}Simulated Annealing Script}{40}{section.A.3}%
-\contentsline {section}{\numberline {A.4}Automation Script}{48}{section.A.4}%
+\contentsline {subsection}{\numberline {4.3.4}Swap move}{15}{subsection.4.3.4}%
+\contentsline {subsection}{\numberline {4.3.5}Insertion move}{15}{subsection.4.3.5}%
+\contentsline {subsection}{\numberline {4.3.6}Get neighbour}{16}{subsection.4.3.6}%
+\contentsline {subsection}{\numberline {4.3.7}Simulated annealing}{16}{subsection.4.3.7}%
+\contentsline {section}{\numberline {4.4}Results visualization: the gantt chart generator}{18}{section.4.4}%
+\contentsline {section}{\numberline {4.5}Automation of the implementation}{18}{section.4.5}%
+\contentsline {chapter}{\numberline {5}Results}{19}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Analysis of the obj. values}{21}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Computational time analysis}{24}{section.5.2}%
+\contentsline {section}{\numberline {5.3}\% gap analysis}{24}{section.5.3}%
+\contentsline {section}{\numberline {5.4}Gantt charts analysis}{25}{section.5.4}%
+\contentsline {chapter}{\numberline {6}Conclusions}{29}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Summary of the results and supremacy of the metaheuristic}{29}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Maintenance and industrial reality}{29}{section.6.2}%
+\contentsline {section}{\numberline {6.3}Decisional and sectorial flexibility}{30}{section.6.3}%
+\contentsline {chapter}{\numberline {A}Scripts}{31}{appendix.A}%
+\contentsline {section}{\numberline {A.1}Data generation script}{31}{section.A.1}%
+\contentsline {section}{\numberline {A.2}MIP implementation script}{32}{section.A.2}%
+\contentsline {section}{\numberline {A.3}Simulated annealing script}{38}{section.A.3}%
+\contentsline {section}{\numberline {A.4}Automation script}{46}{section.A.4}%
+\contentsline {chapter}{List of Tables}{49}{section*.14}%
+\contentsline {chapter}{List of Figures}{50}{section*.15}%

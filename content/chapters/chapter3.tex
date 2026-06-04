@@ -3,9 +3,38 @@
 
 The problem addressed in this study takes into consideration a permutation flowshop scheduling with periodic maintenance. The aim is, given the number of jobs, the number of machines and the processing time of every job on every machine, to minimize the completion time of the final job in the sequence. The production will be carried out within working shifts. To reduce time wasting given by the transfer of duties and the explanation of the work carried out up to the end of the shift, we will consider the end of the shift as a time limit to finish the job that has started so there are no jobs that start in a shift and end in another. When deciding whether to start a job in a shift, if there isn't enough time to complete the job in the current shift, it'll wait and start being worked in the next one.
 
-\section[Mathematical Notation: Parameters, Indexes and Variables]{Mathematical Notation: Parameters, Indexes and Variables}
+Furthermore, the \textbf{idle time} (the time between the finish of a job on a machine and the start of the next one on the same machine) will be considered as a maintenance opportunity. This approach aims to exploit natural gaps in the schedule, performing maintenance without interrupting active processing, thus preserving productivity.
 
-To transition from the description of the problem to the mathematical model, it is necessary to define the notation used to represent the production environment and the scheduling constraints \cite{perez2020permutation}. It is explained in more detail in the table \textbf{\ref{tab:notation}}.
+\section[Mathematical notation: parameters, indexes and variables]{Mathematical notation: parameters, indexes and variables}
+
+To transition from the description of the problem to the mathematical model, it is necessary to define the notation used to represent the production environment and the scheduling constraints \cite{perez2020permutation}. It is explained in more detail in \textbf{Table \ref{tab:notation}}.
+
+\newpage
+\begin{table}
+\centering
+\caption{Mathematical notation: parameters, indexes and variables}
+\label{tab:notation}
+\begin{tabular}{@{}ll@{}}
+\toprule
+\textbf{Symbol} & \textbf{Description} \\ \midrule
+\textit{Parameters} & \\
+$n$ & Number of jobs \\
+$m$ & Number of machines \\
+$p_{ij}$ & Processing time of job $j$ on machine $i$ \\
+$T$ & Length of the shifts \\
+$M$ & Big number \\
+$S$ & Maximal number of shifts \\ \midrule
+\textit{Indexes} & \\
+$j$ & Jobs $1 \le j \le n$ \\
+$i$ & Machines $1 \le i \le m$ \\
+$l$ & Positions $1 \le l \le n$ \\
+$s$ & Shifts $1 \le s \le S$ \\ \midrule
+\textit{Variables} & \\
+$E_{ij}$ & Completion time of job in position $j$ in machine $i$ \\[2ex]
+$Z_{jl}$ & $\begin{cases} 1 & \text{if job } j \text{ is scheduled in position } l \\ 0 & \text{otherwise} \end{cases}$ \\[4ex]
+$\gamma_{ils}$ & $\begin{cases} 1 & \text{if job in position } l \text{ is scheduled in shift } s \text{ in machine } i \\ 0 & \text{otherwise} \end{cases}$ \\ \bottomrule
+\end{tabular}
+\end{table}
 
 \section[Constraints and objective function]{Constraints and objective function}
 
@@ -70,38 +99,8 @@ Sets of Eqs. \eqref{eq:equ6} and \eqref{eq:equ7} control that each operation sta
 
 Finally, the set of Eqs. \eqref{eq:equ8} ensures that each operation is scheduled in one shift.
 
-\begin{table}
-\centering
-\caption{Mathematical Notation: Parameters, Indexes and Variables}
-\label{tab:notation}
-\begin{tabular}{@{}ll@{}}
-\toprule
-\textbf{Symbol} & \textbf{Description} \\ \midrule
-\textit{Parameters} & \\
-$n$ & Number of jobs \\
-$m$ & Number of machines \\
-$p_{i,j}$ & Processing time of job $j$ on machine $i$ \\
-$T$ & Length of the shifts \\
-$M$ & Big number \\
-$S$ & Maximal number of shifts \\ \midrule
-\textit{Indexes} & \\
-$j$ & Jobs $1 \le j \le n$ \\
-$i$ & Machines $1 \le i \le m$ \\
-$l$ & Positions $1 \le l \le n$ \\
-$s$ & Shifts $1 \le s \le S$ \\ \midrule
-\textit{Variables} & \\
-$E_{ij}$ & Completion time of job in position $j$ on machine $i$ \\[2ex]
-$Z_{jl}$ & $\begin{cases} 1 & \text{if job } j \text{ is in position } l \\ 0 & \text{otherwise} \end{cases}$ \\[4ex]
-$\gamma_{ils}$ & $\begin{cases} 1 & \text{if job in position } l \text{ is in shift } s \text{ on machine } i \\ 0 & \text{otherwise} \end{cases}$ \\ \bottomrule
-\end{tabular}
-\end{table}
-
-\section[Modeling Maintenance in Idle Times]{Modeling Maintenance in Idle Times}
-
-In this particular study, we consider the \textbf{idle time} (the time between the finish of a job on a machine and the start of the next one on the same machine) as a maintenance opportunity. This approach aims to exploit natural gaps in the schedule, performing maintenance without interrupting active processing, thus preserving productivity.
-
-\section[The Proposed Metaheuristic]{The Proposed Metaheuristic}
+\section[The proposed metaheuristic]{The proposed metaheuristic}
 
 Metaheuristics have been established as one of the most practical approaches to simulation optimization. They are designed to tackle complex optimization problems where other optimization methods have failed to be either effective or efficient. A good metaheuristic implementation is likely to provide near optimal solutions in reasonable computation times \cite{OLAFSSON2006633}. In this study we will apply the \textbf{Simulated Annealing} (SA) metaheuristic.
 
-Simulated annealing is a probabilistic method proposed in Kirkpatrick, Gelett and Vecchi (1983) and Cerny (1985) for finding the global minimum of a cost function that may possess several local minima \cite{bertsimas1993simulated}. In condensed matter physics, annealing denotes a physical process in which a solid in a heat bath is heated up by increasing the temperature of the heat bath to a maximum value at which all particles of the solid randomly arrange themselves in the liquid phase, followed by cooling through slowly lowering the temperature of the heat bath. In this way, all particles arrange themselves in the low energy ground state of the corresponding lattice, provided the maximum temperature is sufficiently high and the cooling is carried out sufficiently slowly \cite{van1987simulated}.
+Simulated annealing is a probabilistic method proposed in Kirkpatrick, Gelett, Vecchi (1983) and Cerny (1985) for finding the global minimum of a cost function that may possess several local minima \cite{bertsimas1993simulated}. In condensed matter physics, annealing denotes a physical process in which a solid in a heat bath is heated up by increasing the temperature of the heat bath to a maximum value at which all particles of the solid randomly arrange themselves in the liquid phase, followed by cooling through slowly lowering the temperature of the heat bath. In this way, all particles arrange themselves in the low energy ground state of the corresponding lattice, provided the maximum temperature is sufficiently high and the cooling is carried out sufficiently slowly \cite{van1987simulated}.
